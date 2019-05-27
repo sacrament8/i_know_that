@@ -23,30 +23,17 @@
 
 <script>
 $(function() {
-  // 画面サイズ取得し、bodyheightを画面サイズに
-   win_height = $(window).height();
-  $('body').css("height", win_height + "px");
-
   // home画面のみ背景画像とグラデーションレイヤー用クラスを付加
   $('body').addClass('home-style');
-
   // アプリ紹介文のアニメーション
   var element = $('.slide-fade'); //オブジェクトを取得
   var interval=147; //フェードインさせる間隔
   $.each(element, function(index){
     element.eq(index).delay(index * interval).animate({'opacity':'1', 'marginLeft': '0px'}, 0,'swing');
   });
-
-  // 画面遷移時にhome用スタイリングクラスを削除、汎用スタイリングクラスを付与
-  
 });
-// 画面リサイズ時にbodyのheight再調整
-$(window).resize(function () {
-  win_height = $(window).height();
-  $('body').css("height", win_height + "px");
-});
+// 画面遷移時にhome用スタイリングクラスを削除
 window.onunload = function(){
     $('body').removeClass('home-style');
-    $('body').addClass('multi-back');
   }
 </script>
