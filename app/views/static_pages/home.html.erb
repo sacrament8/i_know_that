@@ -1,34 +1,51 @@
+<% provide(:title, "entrance") %>
+
 <div class="row">
   <div class="col-md-12 text-center mt-4 text-light mx-auto home-title">I know that</div>
 
   <div class="col-md-5 mt-5 mx-auto btn-wrapper">
-    <a href="#" class="btn btn-outline-light btn-xl rounded-pill enter-btn-top col-md-12">ユーザー登録</a>
-    <a href="#" class="btn btn-outline-light btn-xl rounded-pill enter-btn col-md-12">登録済みの方こちら</a>
-    <a href="#" class="btn btn-outline-light btn-xl rounded-pill enter-btn col-md-12">ゲストログイン(機能制限)</a>
-    <a href="https://github.com/sacrament8/i_know_that" class="btn btn-outline-light btn-xl rounded-pill enter-btn col-md-12">GitHub</a>
-
+    <%= link_to "ユーザー登録", "#", remote: true, class: "btn btn-outline-light btn-xl rounded-pill enter-btn col-md-12" %>
+    <%= link_to "登録済みの方こちら", "#", remote: true, class: "btn btn-outline-light btn-xl rounded-pill enter-btn col-md-12" %>
+    <%= link_to "登録しないで利用(機能制限)", "#", class: "btn btn-outline-light btn-xl rounded-pill enter-btn col-md-12" %>
+    <%= link_to "GitHub", "https://github.com/sacrament8/i_know_that", class: "btn btn-outline-light btn-xl rounded-pill enter-btn col-md-12" %>
   </div>
 
-  <div class="col-md-7 mx-auto mt-5 text-light text-center bottom">
-    <h2 class="mb-4 intro">どんなアプリケーション?</h2>
-    <p class="app-description intro">この画像に写ってるのってなに?</p>
-    <p class="app-description intro">この画像の役者さんってだれだっけ?</p>
-    <p class="app-description intro">この画像に写ってるのってどこ?</p>
-    <p class="app-description intro">画像と「それ」の何が知りたいのかを投稿して</p>
-    <p class="app-description intro">「それ」を知ってる人に教えてもらおう</p>
-    <p class="app-description intro">I know that(それ、知ってる!)</p>
+  <div class="col-md-7 mx-auto mt-5 text-light text-center">
+    <h2 class="mb-4 slide-fade desc-title">どんな<span class="change-color">アプリ</span>ケーション?</h2>
+    <p class="slide-fade description-text">この画像に写ってるのってなに?</p>
+    <p class="slide-fade description-text">この画像の役者さんってだれだっけ?</p>
+    <p class="slide-fade description-text">この画像の建物ってどこにあるの?</p>
+    <p class="slide-fade description-text">画像と「それ」の何が知りたいのかを投稿して</p>
+    <p class="slide-fade description-text">「それ」を知ってる人に教えてもらおう</p>
+    <p class="slide-fade description-text">I know that(それ、知ってる!)</p>
   </div>
 </div>
 
 <script>
 $(function() {
-  // $('.intro').each(function(index, element){
-  //   $(element).delay(interval).addClass('show');
-  var element = $('.intro'); //オブジェクトを取得
+  // 画面サイズ取得し、bodyheightを画面サイズに
+   win_height = $(window).height();
+  $('body').css("height", win_height + "px");
+
+  // home画面のみ背景画像とグラデーションレイヤー用クラスを付加
+  $('body').addClass('home-style');
+
+  // アプリ紹介文のアニメーション
+  var element = $('.slide-fade'); //オブジェクトを取得
   var interval=147; //フェードインさせる間隔
-  $.each(element, function(i){
-    element.eq(i).delay(i*interval).animate({'opacity':'1', 'marginLeft': '0px'}, 0,'swing');
+  $.each(element, function(index){
+    element.eq(index).delay(index * interval).animate({'opacity':'1', 'marginLeft': '0px'}, 0,'swing');
   });
-  // });
+
+  // 画面遷移時にhome固有スタイリングを削除
+  window.onunload = function(){
+    $('body').removeClass('home-style');
+  }
 });
+// 画面リサイズ時にbodyのheight再調整
+$(window).resize(function () {
+  win_height = $(window).height();
+  $('body').css("height", win_height + "px");
+});
+
 </script>
