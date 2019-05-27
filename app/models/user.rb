@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  has_many :posts
   validates :name, presence: true, length: { in: 2..25 }
-  include AvatarUploader[:avatar]
+  include AvatarUploader::Attachment.new(:avatar)
 end

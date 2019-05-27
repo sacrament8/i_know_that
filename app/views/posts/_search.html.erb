@@ -1,0 +1,5 @@
+<%= search_form_for @q, class: 'navbar-form navbar-left' do |f| %>
+  <label>質問検索</label>
+  <%= f.search_field :description_or_title_cont %>
+  <%= f.submit '検索' %>
+<% end %>

@@ -10,22 +10,23 @@ body {
 .navbar {
   padding-top: 0;
   padding-bottom: 0;
+  position: relative;
+  z-index: 2000;
+  opacity: 0.5;
 }
 .nav {
   opacity: 0.5;
 }
-.dorpdown-item {
-  position: absolute;
-  z-index: 2000;
-}
+
 /* 汎用 */
 
 /* my page */
 .avatar {
   border-radius: 50%;
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 220px;
   object-fit: cover;
+  display: block;
 }
 
 /*left section*/
@@ -36,4 +37,30 @@ body {
 .right-section {
   background: blue;
   height: 500px;
+}
+
+/*post index*/
+.post-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+.navbar-left {
+  margin: 10px auto;
+}
+#q_title_cont {
+  width: 300px;
+}
+
+.card {
+  box-shadow: 9px 4px 9px -4px #8f9997;
+  border-radius: 6px;
+  border: 1px solid #cccccc;
+  height: 500px;
+}
+ul {
+  list-style: none;
+}
+.image_wrapper {
+  padding: 0;
 }

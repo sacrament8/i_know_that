@@ -1,0 +1,23 @@
+<%= form_with model: post, local: true, url: posts_path do |f| %>
+  <%= render partial: 'shared/error_messages', locals: { object: post } %>
+
+  <div class="field">
+    <%= f.label :image_data %>
+    <%= f.hidden_field :image, value: post.cached_image_data %>
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+  </div>
+<% end %>
