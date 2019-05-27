@@ -1,0 +1,47 @@
+.home-style {
+  background: linear-gradient(
+      -150deg,
+      rgba(15, 168, 84, 0.781),
+      rgba(240, 22, 193, 0.667)
+    ),
+    url(dog.jpg) no-repeat fixed;
+  background-position: center right;
+  background-size: cover;
+}
+/*HOME*/
+.navbar-brand {
+  font-family: "Quicksand", sans-serif;
+  font-weight: bold;
+  font-size: 25px;
+}
+.nav-link {
+  font-family: "Quicksand", "Kosugi Maru", sans-serif;
+}
+
+.enter-btn {
+  margin-top: 20px;
+}
+
+.home-title {
+  font-size: 62px;
+  text-shadow: 2px 1px 1px rgb(109, 109, 109);
+}
+
+.slide-fade {
+  opacity: 0;
+  transition: 0.7s;
+  margin-left: 80px;
+  text-shadow: 4px 1px 1px rgb(109, 109, 109);
+}
+.description-text {
+  font-size: 20px;
+}
+.btn-wrapper {
+  padding-top: 60px;
+  padding-bottom: 30px;
+}
+.change-color {
+  color: #e2ccfc;
+}
+.desc-title {
+}

@@ -1,45 +1,39 @@
 body {
-  margin-bottom: 80px;
+  font-family: "Quicksand", "Kosugi Maru", sans-serif;
   background: linear-gradient(
-      -150deg,
-      rgba(15, 168, 84, 0.781),
-      rgba(240, 22, 193, 0.667)
-    ),
-    url(dog.jpg);
-  background-size: cover;
-  font-family: "Quicksand", "Kosugi Maru", sans-serif;
+    -150deg,
+    rgba(15, 168, 84, 0.2),
+    rgba(240, 22, 193, 0.15)
+  );
+}
+/*header*/
+.navbar {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.nav {
+  opacity: 0.5;
+}
+.dorpdown-item {
+  position: absolute;
+  z-index: 2000;
+}
+/* 汎用 */
+
+/* my page */
+.avatar {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
 }
 
-/*HOME*/
-.navbar-brand {
-  font-family: "Quicksand", sans-serif;
-  font-weight: bold;
-  font-size: 25px;
+/*left section*/
+.left-section {
+  height: 100%;
 }
-.nav-link {
-  font-family: "Quicksand", "Kosugi Maru", sans-serif;
-}
-
-.enter-btn {
-  margin-top: 20px;
-}
-
-.home-title {
-  font-size: 58px;
-}
-
-.app-description {
-  font-size: 20px;
-}
-.btn-wrapper {
-  padding-top: 60px;
-  padding-bottom: 30px;
-}
-.intro {
-  opacity: 0;
-  transition: 0.7s;
-  margin-left: 80px;
-}
-.bottom {
-  margin-bottom: 350px;
+/*right section*/
+.right-section {
+  background: blue;
+  height: 500px;
 }

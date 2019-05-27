@@ -1,38 +1,46 @@
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#6dbcb5;opacity:0.7;">
-  <a class="navbar-brand text-light" href="#">I know that</a>
+  <%= link_to 'I know that', "#", class: "navbar-brand text-light" %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link text-light" href="https://github.com/sacrament8/i_know_that">GitHub</a>
-      </li>
-    </ul>
-
     <!--メニュー左側表示-->
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link text-light" href="#">Index</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-light" href="#">予備</a>
-      </li>
-    </ul>
+    <% if user_signed_in? %>
+      <ul class="navbar-nav mr-auto ml-5">
+        <li class="nav-item active ml-3">
+          <a class="nav-link text-light" href="#">みんなの質問</a>
+        </li>
+        <li class="nav-item ml-3">
+          <a class="nav-link text-light" href="#">みんなに質問する</a>
+        </li>
+      </ul>
+    <% else %>
+      <ul class="navbar-nav mr-auto ml-5">
+        <li class="nav-item active ml-3">
+          <a class="nav-link text-light" href="#">みんなの質問</a>
+        </li>
+      </ul>
+    <% end %>
     <!--メニュー右側表示-->
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item active">
-        <a class="nav-link text-light" href="#">SignUp</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-light" href="#">SignIn</a>
+    <ul class="navbar-nav ml-auto mr-5">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= user_signed_in? ? current_user.name : "名無しさん" %>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <% if user_signed_in? %>
+            <%= link_to "MyPage", user_path(current_user), class: "dropdown-item" %>
+            <%= link_to 'settings', edit_user_registration_path, class: "dropdown-item" %>
+            <div class="dropdown-divider"></div> 
+            <%= link_to "SignOut", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          <% else %>
+            <%= link_to "SignUp", new_user_registration_path, class: "dropdown-item" %>
+            <%= link_to "SignIn", new_user_session_path, class: "dropdown-item" %>
+          <% end %>
+            
+          <%# <div class="dropdown-divider"></div> %>
+        </div>
       </li>
     </ul>
-    <!--検索-->
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
 </nav>

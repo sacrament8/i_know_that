@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="left-section col-3 mt-4">
+    <div class="image_wrapper col-12">
+      <%= image_tag (@user.avatar.present? ? @user.avatar[:large].url : "no-image.jpg"), class: 'avatar' %>
+    </div>
+    <p class="col-12 text-center mt-2"><%= @user.name %></p>
+    <%= link_to 'ユーザー設定変更', edit_user_registration_path, class: "btn btn-primary col-12" %>
+  </div>
+  <div class="right-sectoion col-9 mt-4">
+    <h2 class="col-12 text-center mb-5">投稿質問一覧</h2>
+    <ul class="text-center">
+      <li>title/description/status/created_date</li>
+      <li>title/description/status/created_date</li>
+      <li>title/description/status/created_date</li>
+      <li>title/description/status/created_date</li>
+      <li>title/description/status/created_date</li>
+      <li>title/description/status/created_date</li>
+    </ul>
+
+  </div>
+</div>
