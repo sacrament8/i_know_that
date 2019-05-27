@@ -4,8 +4,8 @@
   <div class="col-md-12 text-center mt-4 text-light mx-auto home-title">I know that</div>
 
   <div class="col-md-5 mt-5 mx-auto btn-wrapper">
-    <%= link_to "ユーザー登録", "#", remote: true, class: "btn btn-outline-light btn-xl rounded-pill enter-btn col-md-12" %>
-    <%= link_to "登録済みの方こちら", "#", remote: true, class: "btn btn-outline-light btn-xl rounded-pill enter-btn col-md-12" %>
+    <%= link_to "ユーザー登録",  new_user_registration_path, class: "btn btn-outline-light btn-xl rounded-pill enter-btn col-md-12" %>
+    <%= link_to "登録済みの方こちら", new_user_session_path, class: "btn btn-outline-light btn-xl rounded-pill enter-btn col-md-12" %>
     <%= link_to "登録しないで利用(機能制限)", "#", class: "btn btn-outline-light btn-xl rounded-pill enter-btn col-md-12" %>
     <%= link_to "GitHub", "https://github.com/sacrament8/i_know_that", class: "btn btn-outline-light btn-xl rounded-pill enter-btn col-md-12" %>
   </div>
@@ -37,15 +37,16 @@ $(function() {
     element.eq(index).delay(index * interval).animate({'opacity':'1', 'marginLeft': '0px'}, 0,'swing');
   });
 
-  // 画面遷移時にhome固有スタイリングを削除
-  window.onunload = function(){
-    $('body').removeClass('home-style');
-  }
+  // 画面遷移時にhome用スタイリングクラスを削除、汎用スタイリングクラスを付与
+  
 });
 // 画面リサイズ時にbodyのheight再調整
 $(window).resize(function () {
   win_height = $(window).height();
   $('body').css("height", win_height + "px");
 });
-
+window.onunload = function(){
+    $('body').removeClass('home-style');
+    $('body').addClass('multi-back');
+  }
 </script>

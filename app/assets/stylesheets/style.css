@@ -1,3 +1,27 @@
 body {
   font-family: "Quicksand", "Kosugi Maru", sans-serif;
 }
+/*header*/
+.navbar {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.nav {
+  opacity: 0.5;
+}
+/* 汎用 */
+.multi-back {
+  /* background: linear-gradient(
+    -150deg,
+    rgba(15, 168, 84, 0.781),
+    rgba(240, 22, 193, 0.667)
+  ); */
+  background: blue;
+}
+/* my page */
+.avatar {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
