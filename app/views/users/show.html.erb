@@ -1,21 +1,38 @@
 <div class="row">
-  <div class="left-section col-3 mt-4">
-    <div class="image_wrapper col-12">
-      <%= image_tag (@user.avatar.present? ? @user.avatar[:large].url : "no-image.jpg"), class: 'avatar' %>
-    </div>
+  <div class="left-section col-md-3 mt-4">
+    <%= image_tag (@user.avatar.present? ? @user.avatar[:large].url : "no-image.jpg"), class: 'avatar mx-auto' %>
     <p class="col-12 text-center mt-2"><%= @user.name %></p>
-    <%= link_to 'ユーザー設定変更', edit_user_registration_path, class: "btn btn-primary col-12" %>
+    <%= link_to 'ユーザー設定変更', edit_user_registration_path, class: "btn btn-primary col-8 offset-2" %>
   </div>
-  <div class="right-sectoion col-9 mt-4">
-    <h2 class="col-12 text-center mb-5">投稿質問一覧</h2>
-    <ul class="text-center">
-      <li>title/description/status/created_date</li>
-      <li>title/description/status/created_date</li>
-      <li>title/description/status/created_date</li>
-      <li>title/description/status/created_date</li>
-      <li>title/description/status/created_date</li>
-      <li>title/description/status/created_date</li>
-    </ul>
-
+  <div class="right-sectoion col-md-9 mt-4">
+    <h2 class="col-12 text-center mb-5">最近の質問(10件)</h2>
+    <% if current_user.posts.present? %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>質問タイトル</th>
+            <th>質問内容</th>
+            <th>ステータス</th>
+            <th>投稿日</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% current_user.posts.limit(10).each do |post| %>
+            <%= link_to post do %>
+              <tr>
+                <td><%= truncate(post.title, length: 12) %></td>
+                <td><%= truncate(post.description, length: 20) %></td>
+                <td><%= post.status %></td>
+                <td><%= post.prepare_created_at %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <div class="card col-10 offset-1" style="height: 160px;">
+        <div class="card-body text-center mt-5">あなたの質問はまだありません</div>
+      </div>
+    <% end %>
   </div>
 </div>

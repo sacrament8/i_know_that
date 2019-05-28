@@ -1,0 +1,11 @@
+<% provide(:title, 'みんなの質問') %>
+<h2 class="col-12 text-center my-4">みんなの質問</h2>
+<div class="row">
+  <%= render "posts/search" %>
+</div>
+<div class="row">
+  <%= render @posts %>
+</div>
+<div class="mt-5 offset-5">
+  <%= paginate @posts %>
+</div>

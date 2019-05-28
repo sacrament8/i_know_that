@@ -1,0 +1,4 @@
+<%= form_with model: post, local: true, url:  status_update_post_path(post.id), class: "offset-8" do |f| %>
+  <%= f.select :status, Post.statuses.keys %>
+  <%= f.submit '解決した?', class: "btn btn-warning ml-3 text-light" %>
+<% end %>

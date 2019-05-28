@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="card offset-2 col-8 mt-4" style="height: auto;">
+    <div class="mx-auto my-3">
+      <%= link_to (image_tag @post.image[:large].url), "#", class: "my-3 card-img-top" %>
+    </div>
+    <div class="card-title">
+      <h3 class="col-12 text-center"><%= @post.title %></h3>
+    </div>
+    <div class="card-title text-right mr-2">投稿者 : <%= @post.user.name %></div>
+    <h5 class="text-center card-title">質問内容</h5>
+    <div class="card-body"><%= @post.description %></div>
+    <% if current_user.id == @post.user_id %>
+      <div class="card-body col-12">
+        <div class="btn-group float-right">
+          <%= link_to '編集する', edit_post_path(@post), class: "btn btn-success text-right" %>
+          <%= link_to '削除する', post_path(@post), class: "btn btn-danger text-right", method: :delete, data: { confirm: "本当に質問を削除しますか?" }  %>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+  <% if current_user.id == @post.user_id%>
+    <div class="my-4 col-12">
+      <%= render partial: 'posts/status_change', locals: { post: @post } %>
+    </div>
+  <% end %>
+</div>

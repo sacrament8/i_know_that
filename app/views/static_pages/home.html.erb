@@ -4,10 +4,10 @@
   <div class="col-md-12 text-center mt-4 text-light mx-auto home-title">I know that</div>
 
   <div class="col-md-5 mt-5 mx-auto btn-wrapper">
-    <%= link_to "ユーザー登録",  new_user_registration_path, class: "btn btn-outline-light btn-xl rounded-pill enter-btn col-md-12" %>
-    <%= link_to "登録済みの方こちら", new_user_session_path, class: "btn btn-outline-light btn-xl rounded-pill enter-btn col-md-12" %>
-    <%= link_to "登録しないで利用(機能制限)", "#", class: "btn btn-outline-light btn-xl rounded-pill enter-btn col-md-12" %>
-    <%= link_to "GitHub", "https://github.com/sacrament8/i_know_that", class: "btn btn-outline-light btn-xl rounded-pill enter-btn col-md-12" %>
+    <%= link_to "ユーザー登録",  new_user_registration_path, class: "btn btn-outline-light btn-xl rounded-pill enter-btn col-md-8 offset-4" %>
+    <%= link_to "登録済みの方こちら", new_user_session_path, class: "btn btn-outline-light btn-xl rounded-pill enter-btn col-md-8 offset-4" %>
+    <%= link_to "登録しないで利用(機能制限)", "#", class: "btn btn-outline-light btn-xl rounded-pill enter-btn col-md-8 offset-4" %>
+    <%= link_to "GitHub", "https://github.com/sacrament8/i_know_that", class: "btn btn-outline-light btn-xl rounded-pill enter-btn col-md-8 offset-4" %>
   </div>
 
   <div class="col-md-7 mx-auto mt-5 text-light text-center">
@@ -16,7 +16,7 @@
     <p class="slide-fade description-text">この画像の役者さんってだれだっけ?</p>
     <p class="slide-fade description-text">この画像の建物ってどこにあるの?</p>
     <p class="slide-fade description-text">画像と「それ」の何が知りたいのかを投稿して</p>
-    <p class="slide-fade description-text">「それ」を知ってる人に教えてもらおう</p>
+    <p class="slide-fade description-text">「それ」を知ってる人に教えてもらおう</p>z
     <p class="slide-fade description-text">I know that(それ、知ってる!)</p>
   </div>
 </div>
@@ -24,7 +24,7 @@
 <script>
 $(function() {
   // home画面のみ背景画像とグラデーションレイヤー用クラスを付加
-  $('body').addClass('home-style');
+  $('html').addClass('home-style');
   // アプリ紹介文のアニメーション
   var element = $('.slide-fade'); //オブジェクトを取得
   var interval=147; //フェードインさせる間隔
@@ -34,6 +34,6 @@ $(function() {
 });
 // 画面遷移時にhome用スタイリングクラスを削除
 window.onunload = function(){
-    $('body').removeClass('home-style');
+    $('html').removeClass('home-style');
   }
 </script>

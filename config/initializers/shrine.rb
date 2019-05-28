@@ -2,8 +2,8 @@ require "shrine"
 require "shrine/storage/file_system"
 
 Shrine.storages = {
-  cache: Shrine::Storage::FileSystem.new("public", prefix: "uploads/cache"), # キャッシュファイル置き場を指定
-  store: Shrine::Storage::FileSystem.new("public", prefix: "uploads"),       # 画像保存先を指定
+  cache: Shrine::Storage::FileSystem.new("public", prefix: "uploads/avatar/cache"), # キャッシュファイル置き場を指定
+  store: Shrine::Storage::FileSystem.new("public", prefix: "uploads/avatar"),       # 画像保存先を指定
 }
 
 Shrine.plugin :activerecord           # <=ここは:activerecordに変更
