@@ -1,18 +1,18 @@
 <div class="row">
   <h2 class="col-12 text-center my-4">Log in</h2>
 
-  <div class="card offset-3 col-6" style="height: 100px; margin-bottom: 30px;">
-    <p class="text-center mt-3">テストユーザーログインボタンを使用する事で</p>
-    <p class="text-center">こちらで用意したテストユーザーでログインいただけます</p>
+  <div class="card offset-3 col-6" style="height: auto; margin-bottom: 30px;">
+    <p class="text-center mt-3 card-text">テストユーザーログインボタンを使用する事で</p>
+    <p class="text-center card-text mb-3">こちらで用意したテストユーザーでログインいただけます</p>
   </div>
 
-  <%= form_for(resource, as: resource_name,html: { class: "col-12" }, url: session_path(resource_name)) do |f| %>
+  <%= form_for(resource, as: resource_name, html: { class: "col-12" }, url: session_path(resource_name)) do |f| %>
     <div class="field col-12 mx-auto">
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "offset-4 col-4 mb-4", placeholder: "メールアドレス", id: 'login-email' %>
     </div>
 
     <div class="field col-12">
-      <%= f.password_field :password, autocomplete: "current-password", class: "offset-4 col-4 mb-5", placeholder: "パスワード", id: 'login-pass' %>
+      <%= f.password_field :password, autocomplete: "current-password", class: "offset-4 col-4 mb-4", placeholder: "パスワード", id: 'login-pass' %>
     </div>
   <!--
     <% if devise_mapping.rememberable? %>
@@ -23,7 +23,7 @@
     <% end %>
   -->
     <div class="actions ">
-      <%= f.submit "SignIn", class: "btn btn-primary offset-4 col-4 mb-3 rounded-pill" %>
+      <%= f.submit "SignIn", class: "btn btn-primary offset-4 col-4 mb-4 rounded-pill" %>
     </div>
 
     <div class="actions ">

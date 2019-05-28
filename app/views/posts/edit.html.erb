@@ -1,9 +1,7 @@
-<% provide(:button_text, '質問する') %>
-<% provide(:title, '質問投稿ページ') %>
-<div class="row">
-  <%= render partial: 'posts/form', locals: { post: @post } %>
-</div>
-<script type="text/javascript">
+<% provide(:button_text, "編集する") %>
+<% provide(:title, "質問編集ページ") %>
+<%= render partial: "posts/form", locals: { post: @post } %>
+<script>
 $(function(){
   //画像ファイルプレビュー表示のイベント追加 fileを選択時に発火するイベントを登録
   $('form').on('change', 'input[type="file"]', function(e) {
@@ -21,11 +19,14 @@ $(function(){
         //既存のプレビューを削除
         $preview.empty();
         // .prevewの領域の中にロードした画像を表示するimageタグを追加
+        // 既にあるimg要素をdisplay: noneにしてから処理して、画像のimg要素の重複を回避
+        $('img').css('display', 'none');
         $preview.append($('<img>').attr({
                   src: e.target.result,
                   class: "preview",
                   title: file.name
               }));
+        
       };
     })(file);
     reader.readAsDataURL(file);

@@ -1,23 +1,30 @@
-<%= form_with model: post, local: true, url: posts_path do |f| %>
+<%= form_with model: post, local: true, class: "col-12" do |f| %>
   <%= render partial: 'shared/error_messages', locals: { object: post } %>
 
+  <% if @post.image_data %>
+    <%= image_tag @post.image[:large].url, class: "offset-3 col-6 mt-3 preview" %>
+    <div class="preview offset-3 col-6 post-image-prev"></div>
+  <% else %>
+    <div class="preview offset-3 col-6 post-image-prev"></div>
+  <% end %>
+
   <div class="field">
-    <%= f.label :image_data %>
+    <%= f.label :image_data, '画像ファイル', class: "offset-3 col-6 mt-3" %><br>
     <%= f.hidden_field :image, value: post.cached_image_data %>
-    <%= f.file_field :image %>
+    <%= f.file_field :image, class: "offset-3 col-6 mb-4", id: "post_image" %>
   </div>
 
   <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.label :title, '質問タイトル', class: "offset-3 col-6" %><br>
+    <%= f.text_field :title, class: "offset-3 col-6 mb-4" %>
   </div>
 
   <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
+    <%= f.label :description, '質問内容', class: "offset-3 col-6" %><br>
+    <%= f.text_area :description, class: "offset-3 col-6 mb-5" %>
   </div>
 
   <div class="actions">
-    <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+    <%= f.submit yield(:button_text), class: "btn btn-primary offset-3 col-6" %>
   </div>
 <% end %>

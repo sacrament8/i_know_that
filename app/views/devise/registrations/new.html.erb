@@ -1,34 +1,30 @@
 <div class="row">
 <h2 class="text-center col-12 my-4">Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: "col-12") do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "col-12" }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "お名前" %>
+  <div class="field col-12">
+    <%= f.text_field :name, autofocus: true, class: "offset-4 col-4 mb-4", autocomplete: "name", placeholder: "お名前" %>
   </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス" %>
+  <div class="field col-12">
+    <%= f.email_field :email, autofocus: true, class: "offset-4 col-4 mb-4", autocomplete: "email", placeholder: "メールアドレス" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
+  <div class="field col-12">
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em class="offset-4 col-4">(パスワードは<%= @minimum_password_length %> 文字以上必要です)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード" %>
+    <%= f.password_field :password, autocomplete: "new-password", class: "offset-4 col-4 mb-4", placeholder: "パスワード" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワード(確認)" %>
+  <div class="field col-12">
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "offset-4 col-4 mb-4", placeholder: "パスワード(確認)" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="actions col-12">
+    <%= f.submit "ユーザー登録", class: "offset-4 col-4 mb-4 btn-primary btn rounded-pill" %>
   </div>
 <% end %>
 
