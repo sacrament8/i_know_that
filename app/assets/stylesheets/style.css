@@ -64,3 +64,11 @@ ul {
 .image_wrapper {
   padding: 0;
 }
+
+/*SignIn*/
+.signin-input {
+  width: 300px;
+}
+.test-user-btn:hover + .pop {
+  display: block;
+}
