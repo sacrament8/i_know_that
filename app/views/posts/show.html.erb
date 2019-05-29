@@ -8,7 +8,7 @@
     <div class="card-title text-right mr-2">投稿者 : <%= @post.user.name %><%= link_to 'フォロー', "#", class: "btn btn-primary ml-2 follow-btn" %></div>
     <h5 class="text-center card-title">質問内容</h5>
     <div class="card-body text-center"><%= simple_format(@post.description, ) %></div>
-    <% if current_user.id == @post.user_id %>
+    <% if current_user&.id == @post.user_id %>
       <div class="card-body col-12">
         <div class="btn-group float-right">
           <%= link_to '編集する', edit_post_path(@post), class: "btn btn-success text-right" %>
@@ -18,9 +18,17 @@
     <% end %>
     </div>
   </div>
-  <% if current_user.id == @post.user_id%>
+  <% if current_user&.id == @post.user_id%>
     <div class="my-4 col-12">
       <%= render partial: 'posts/status_change', locals: { post: @post } %>
     </div>
   <% end %>
+  <div class="row">
+    <%= render partial: 'comments/index', locals: { comments: @comments, post: @post } %>
+    <% if @post.status == '解決' %>
+      <div class="col-8 offset-2 bg-light text-center py-4">この質問は解決済みなのでコメントできません</div>
+    <% else %>
+      <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
+    <% end %>
+  </div>
 </div>

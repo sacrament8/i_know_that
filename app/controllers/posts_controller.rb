@@ -1,10 +1,15 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: %i()
+  before_action :authenticate_user!, only: %i(edit update destroy status_update)
   before_action :set_post, only: %i(edit show update destroy status_update)
 
   def index
     @q = Post.ransack(params[:q])
     @posts = @q.result(distinct: true).page(params[:page]).per(9)
+  end
+
+  def show
+    @comments = @post.comments
+    @comment = @post.comments.build
   end
 
   def new
@@ -16,7 +21,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to posts_path, notice: "質問に成功しました"
     else
-      render :new
+      puts 'hoge'
     end
   end
 
