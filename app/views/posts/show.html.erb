@@ -1,14 +1,13 @@
-<div class="row">
+<% provide(:title, "質問詳細") %>
+<div class="row reset-pm">
   <div class="card offset-2 col-8 mt-4" style="height: auto;">
-    <div class="mx-auto my-3">
-      <%= link_to (image_tag @post.image[:large].url), "#", class: "my-3 card-img-top" %>
-    </div>
+      <%= link_to (image_tag @post.image[:large].url), "#", class: "my-3 card-img-top post-image-show" %>
     <div class="card-title">
       <h3 class="col-12 text-center"><%= @post.title %></h3>
     </div>
-    <div class="card-title text-right mr-2">投稿者 : <%= @post.user.name %></div>
+    <div class="card-title text-right mr-2">投稿者 : <%= @post.user.name %><%= link_to 'フォロー', "#", class: "btn btn-primary ml-2 follow-btn" %></div>
     <h5 class="text-center card-title">質問内容</h5>
-    <div class="card-body"><%= @post.description %></div>
+    <div class="card-body text-center"><%= simple_format(@post.description, ) %></div>
     <% if current_user.id == @post.user_id %>
       <div class="card-body col-12">
         <div class="btn-group float-right">

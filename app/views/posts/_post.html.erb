@@ -2,8 +2,9 @@
   <div class="post-wrapper">
     <div class="col-12 card mt-3">
       <%= image_tag post.image[:large].url, class: "post-image mt-3 mx-auto" %>
-      <div class="card-title mt-2 mx-auto"><%= truncate(post.title, ommision: "...", length: 20) %></div>
-      <div class="card-text mt-2 mx-auto"><%= truncate(post.description, omission: "...", length: 100) %></div>
+      <div class="card-title mt-2 mx-auto h3"><%= truncate(post.title, length: 15) %></div>
+      <div class="card-text mt-2 mx-auto"><%= truncate(post.description, length: 100) %></div>
+
     </div>
   </div>
 <% end %>

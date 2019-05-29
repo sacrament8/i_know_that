@@ -1,13 +1,15 @@
+<% provide(:title, "マイページ") %>
 <div class="row">
-  <div class="left-section col-md-3 mt-4">
+  <div class="left-section col-lg-3 mt-4">
     <%= image_tag (@user.avatar.present? ? @user.avatar[:large].url : "no-image.jpg"), class: 'avatar mx-auto' %>
     <p class="col-12 text-center mt-2"><%= @user.name %></p>
-    <%= link_to 'ユーザー設定変更', edit_user_registration_path, class: "btn btn-primary col-8 offset-2" %>
+    <%= link_to '設定変更', edit_user_registration_path, class: "btn btn-primary col-8 offset-2" %>
+    <%= link_to 'フォロー管理', "#", class: "btn btn-primary col-8 offset-2 my-4" %>
   </div>
-  <div class="right-sectoion col-md-9 mt-4">
+  <div class="right-sectoion col-lg-9 mt-4">
     <h2 class="col-12 text-center mb-5">最近の質問(10件)</h2>
     <% if current_user.posts.present? %>
-      <table class="table">
+      <table class="table bg-light table-shadow table-hover">
         <thead>
           <tr>
             <th>質問タイトル</th>
@@ -18,14 +20,13 @@
         </thead>
         <tbody>
           <% current_user.posts.limit(10).each do |post| %>
-            <%= link_to post do %>
-              <tr>
+              <tr onclick='window.location="/posts/<%= "#{post.id}" %>"' role="link">
                 <td><%= truncate(post.title, length: 12) %></td>
                 <td><%= truncate(post.description, length: 20) %></td>
                 <td><%= post.status %></td>
                 <td><%= post.prepare_created_at %></td>
               </tr>
-            <% end %>
+            
           <% end %>
         </tbody>
       </table>
