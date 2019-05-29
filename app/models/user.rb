@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :posts, dependent: :destroy
+  has_many :comments, through: :posts, dependent: :destroy
   validates :name, presence: true, length: { in: 2..25 }
   include AvatarUploader::Attachment.new(:avatar)
 end

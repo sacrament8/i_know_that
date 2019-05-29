@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   resources :posts do
+    resources :comments
     member do
       patch 'status_update'
     end

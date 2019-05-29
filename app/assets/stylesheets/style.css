@@ -27,6 +27,13 @@ body {
   text-decoration: none;
   color: black;
 }
+.reset-pm {
+  padding: 0;
+  margin: 0;
+}
+.height-auto {
+  height: auto;
+}
 
 /* my page */
 .avatar {
@@ -37,6 +44,19 @@ body {
   display: block;
 }
 
+.table-shadow {
+  box-shadow: 4px 5px 14px -1px rgba(25, 30, 25, 0.77);
+  border-radius: 6px;
+  border: 1px solid #cccccc;
+}
+
+tr.a {
+  cursor: pointer;
+  z-index: 100;
+}
+td {
+  cursor: default;
+}
 /* edit user */
 img.preview {
   object-fit: cover;
@@ -83,7 +103,6 @@ img.preview {
   box-shadow: 9px 4px 9px -4px #8f9997;
   border-radius: 6px;
   border: 1px solid #cccccc;
-  height: 500px;
 }
 ul {
   list-style: none;
@@ -91,7 +110,10 @@ ul {
 .image_wrapper {
   padding: 0;
 }
-
+.card-text {
+  overflow: hidden;
+  width: 100%;
+}
 /*SignIn*/
 .signin-input {
   width: 300px;
@@ -107,5 +129,25 @@ textarea {
 img.preview {
   margin-top: 30px;
   height: 350px;
+  width: 100%;
+}
+
+/*post show*/
+.post-image-show > img {
+  object-fit: cover;
+  width: 100%;
+  height: 350px;
+}
+.comment-content {
+  overflow-wrap: normal;
+}
+
+/*follw-btn*/
+.follow-btn {
+  padding: 2px;
+}
+
+/*comment form*/
+.comment-form {
   width: 100%;
 }
