@@ -1,0 +1,21 @@
+<%= form_with(model: [@post, @comment], local: true, url: post_comment_path(@post), class: "col-12") do |f| %>
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+      <ul>
+      <% @comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_area :content, class: "comment-form col-8 offset-2" %>
+  </div>
+  <%= f.hidden_field :user_id, value: current_user.id if current_user %>
+
+  <div class="actions">
+    <%= f.submit "回答を編集する", class: "btn btn-primary col-8 offset-2 mt-3" %>
+  </div>
+<% end %>

@@ -1,6 +1,6 @@
 <% provide(:title, "質問詳細") %>
 <div class="row reset-pm">
-  <div class="card offset-2 col-8 mt-4" style="height: auto;">
+  <div class="card offset-2 col-8 mt-4 mb-5" style="height: auto;">
       <%= link_to (image_tag @post.image[:large].url), "#", class: "my-3 card-img-top post-image-show" %>
     <div class="card-title">
       <h3 class="col-12 text-center"><%= @post.title %></h3>
@@ -28,7 +28,7 @@
     <% if @post.status == '解決' %>
       <div class="col-8 offset-2 bg-light text-center py-4">この質問は解決済みなのでコメントできません</div>
     <% else %>
-      <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
+      <%= render partial: 'comments/form', locals: { post: @post, comment: @comment  } %>
     <% end %>
   </div>
 </div>

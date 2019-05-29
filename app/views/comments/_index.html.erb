@@ -1,18 +1,18 @@
-<ul>
-  <% comments.each do |comment| %>
+<% comments.each do |comment| %>
     <% if comment.id.present? %>
-      <li class="my-2">
+      <div class="my-2 card offset-2 col-8">
         <% if comment&.user %>
-          <span><%= comment.user.name %></span>
+          <div class="card-title my-3 text-right">回答者 : <%= comment.user.name %></div>
         <% else %>
-          <span>名無しさん</span>
+          <div class="card-title my-3 text-right">回答者 : 名無しさん</div>
         <% end %>
-        <span><%= comment.content %></span>
+        <div class="card-body comment-content text-center"><%= simple_format(comment.content) %></div>
         <% if current_user&.id == comment.user_id && comment.user_id&.present? %>
-          <%= link_to "編集", "#", class: "btn btn-primary ml-3" %>
-          <%= link_to "削除", "#", class: "btn btn-danger ml-3" %>
+          <div class="btn-group offset-8 mb-3">
+            <%= link_to "編集する", edit_post_comment_path(post_id: comment.post.id, id: comment.id), class: "btn btn-success" %>
+            <%= link_to "削除する",  post_comment_path(post_id: comment.post.id, id: comment.id), method: :delete, data: { confirm: "本当に削除しますか?" }, class: "btn btn-danger" %>
+          </div>
         <% end %>
-      </li>
+      </div>
     <% end %>
   <% end %>
-</ul>
