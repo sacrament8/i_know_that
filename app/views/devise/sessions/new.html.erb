@@ -8,11 +8,11 @@
 
   <%= form_for(resource, as: resource_name, html: { class: "col-12" }, url: session_path(resource_name)) do |f| %>
     <div class="field col-12 mx-auto">
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "offset-4 col-4 mb-4", placeholder: "メールアドレス", id: 'login-email' %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "offset-2 offset-lg-4 col-8 col-lg-4 mb-4", placeholder: "メールアドレス", id: 'login-email' %>
     </div>
 
     <div class="field col-12">
-      <%= f.password_field :password, autocomplete: "current-password", class: "offset-4 col-4 mb-4", placeholder: "パスワード", id: 'login-pass' %>
+      <%= f.password_field :password, autocomplete: "current-password", class: "offset-2 offset-lg-4 col-8 col-lg-4 mb-4", placeholder: "パスワード", id: 'login-pass' %>
     </div>
   <!--
     <% if devise_mapping.rememberable? %>
@@ -23,11 +23,11 @@
     <% end %>
   -->
     <div class="actions ">
-      <%= f.submit "SignIn", class: "btn btn-primary offset-4 col-4 mb-4 rounded-pill" %>
+      <%= f.submit "SignIn", class: "btn btn-primary offset-2 offset-lg-4 col-8 col-lg-4 my-4 rounded-pill" %>
     </div>
 
     <div class="actions ">
-      <%= f.submit "テストユーザーでログイン", class: "btn btn-primary offset-4 col-4 rounded-pill", id: 'test-user-btn' %>
+      <%= f.submit "テストユーザーでログイン", class: "btn btn-primary offset-2 offset-lg-4 col-8 col-lg-4 mb-4 rounded-pill", id: 'test-user-btn' %>
     </div>
   <% end %>
 </div>

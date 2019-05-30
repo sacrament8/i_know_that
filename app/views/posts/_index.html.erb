@@ -1,0 +1,26 @@
+<% if posts.present? %>
+  <table class="table bg-light table-shadow table-hover">
+    <thead>
+      <tr>
+        <th>質問タイトル</th>
+        <th>質問内容</th>
+        <th>ステータス</th>
+        <th>投稿日</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% posts.each do |post| %>
+        <tr onclick='window.location="/posts/<%= "#{post.id}" %>"' role="link">
+          <td><%= truncate(post.title, length: 12) %></td>
+          <td><%= truncate(post.description, length: 20) %></td>
+          <td><%= post.status %></td>
+          <td><%= post.prepare_created_at %></td>
+        </tr>
+      <% end %>
+    </tbody>
+    </table>
+<% else %>
+    <div class="card col-10 offset-1" style="height: 160px;">
+      <div class="card-body text-center mt-5">あなたの質問はまだありません</div>
+    </div>
+<% end %>

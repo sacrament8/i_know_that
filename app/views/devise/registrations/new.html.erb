@@ -6,26 +6,26 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field col-12">
-    <%= f.text_field :name, autofocus: true, class: "offset-4 col-4 mb-4", autocomplete: "name", placeholder: "お名前" %>
+    <%= f.text_field :name, autofocus: true, class: "offset-2 offset-lg-4 col-8 col-lg-4 mb-4", autocomplete: "name", placeholder: "お名前" %>
   </div>
 
   <div class="field col-12">
-    <%= f.email_field :email, autofocus: true, class: "offset-4 col-4 mb-4", autocomplete: "email", placeholder: "メールアドレス" %>
+    <%= f.email_field :email, autofocus: true, class: "offset-2 offset-lg-4 col-8 col-lg-4 mb-4", autocomplete: "email", placeholder: "メールアドレス" %>
   </div>
 
   <div class="field col-12">
     <% if @minimum_password_length %>
-    <em class="offset-4 col-4">(パスワードは<%= @minimum_password_length %> 文字以上必要です)</em>
+    <em class="offset-2 offset-lg-4 col-8 col-lg-4">(パスワードは<%= @minimum_password_length %> 文字以上必要です)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password", class: "offset-4 col-4 mb-4", placeholder: "パスワード" %>
+    <%= f.password_field :password, autocomplete: "new-password", class: "offset-2 offset-lg-4 col-8 col-lg-4 mb-4", placeholder: "パスワード" %>
   </div>
 
   <div class="field col-12">
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "offset-4 col-4 mb-4", placeholder: "パスワード(確認)" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "offset-2 offset-lg-4 col-8 col-lg-4 mb-4", placeholder: "パスワード(確認)" %>
   </div>
 
   <div class="actions col-12">
-    <%= f.submit "ユーザー登録", class: "offset-4 col-4 mb-4 btn-primary btn rounded-pill" %>
+    <%= f.submit "ユーザー登録", class: "btn btn-primary offset-2 offset-lg-4 col-8 col-lg-4 my-4 rounded-pill" %>
   </div>
 <% end %>
 

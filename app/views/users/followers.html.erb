@@ -1,28 +1,30 @@
 <div class="row">
-  <div class="h4 text-center col-12 my-4">フォロー管理</div>
+  <div class="h4 text-center col-12 my-4">ひそひそ一覧</div>
   <!--ここにフォロワーがいるならの分岐をかく-->
-  <% if current_user.following.present? || current_user.followers.present? %>
-    <table class="table bg-light table-shadow table-hover col-10 offset-1">
+  <% if followers_and_followings(current_user).present? %>
+    <table class="table bg-light table-shadow col-10 offset-1">
       <thead>
         <tr>
           <th>ユーザー名</th>
-          <th>フォロー状況</th>
-          <th>フォロー</th>
-          <th>ダイレクトメッセージ</th>
+          <th>ひそひそ</th>
+          <th>ひそひそ解除</th>
+          <th>未読メッセージ</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>ユーザー名</td>
-          <td>フォロー状況</td>
-          <td>フォローor解除ボタン</td>
-          <td>ルーム入室/ルームが使用できません</td>
+        <% followers_and_followings(current_user).each do |user| %>
+          <tr>
+          <td><%= user.name %></td>
+          <td><%= link_to "開始する", "#", class: "btn btn-success hisohiso-btn" %></td>
+          <td><%= render partial: "users/follow_form", locals: { user: user } %></td>
+          <td>あり/なし</td>
         </tr>
+        <% end %>
       </tbody>
     </table>
   <% else %>
     <div class="card col-10 offset-1" style="height: 160px;">
-      <div class="card-body text-center mt-5">フォロワーが存在しません</div>
+      <div class="card-body text-center mt-5">現在はひそひそしていません</div>
     </div>
   <% end %>
 </div>

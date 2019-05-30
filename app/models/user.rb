@@ -21,4 +21,12 @@ class User < ApplicationRecord
   def following?(other_user)
     active_relations.find_by(followed_id: other_user.id)
   end
+
+  def followed?(other_user)
+    passive_relations.find_by(follower_id: other_user.id)
+  end
+
+  def unfollow!(other_user)
+    active_relations.find_by(followed_id: other_user.id).destroy
+  end
 end
