@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'relations/create'
+  get 'relations/destroy'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'
@@ -9,7 +11,12 @@ Rails.application.routes.draw do
       patch 'status_update'
     end
   end
-  resources :users, only: %i(show)
+  resources :users, only: %i(show) do
+    member do
+      get 'followers'
+    end
+  end
+  resources :relations, only: %i(create destroy)
   root 'static_pages#home'
   get 'static_pages/home'
 end

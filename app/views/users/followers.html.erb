@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="h4 text-center col-12 my-4">フォロー管理</div>
+  <!--ここにフォロワーがいるならの分岐をかく-->
+  <% if current_user.following.present? || current_user.followers.present? %>
+    <table class="table bg-light table-shadow table-hover col-10 offset-1">
+      <thead>
+        <tr>
+          <th>ユーザー名</th>
+          <th>フォロー状況</th>
+          <th>フォロー</th>
+          <th>ダイレクトメッセージ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ユーザー名</td>
+          <td>フォロー状況</td>
+          <td>フォローor解除ボタン</td>
+          <td>ルーム入室/ルームが使用できません</td>
+        </tr>
+      </tbody>
+    </table>
+  <% else %>
+    <div class="card col-10 offset-1" style="height: 160px;">
+      <div class="card-body text-center mt-5">フォロワーが存在しません</div>
+    </div>
+  <% end %>
+</div>

@@ -4,7 +4,7 @@
     <%= image_tag (@user.avatar.present? ? @user.avatar[:large].url : "no-image.jpg"), class: 'avatar mx-auto' %>
     <p class="col-12 text-center mt-2"><%= @user.name %></p>
     <%= link_to '設定変更', edit_user_registration_path, class: "btn btn-primary col-8 offset-2" %>
-    <%= link_to 'フォロー管理', "#", class: "btn btn-primary col-8 offset-2 my-4" %>
+    <%= link_to 'フォロー管理', followers_user_path(@user), class: "btn btn-primary col-8 offset-2 my-4" %>
   </div>
   <div class="right-sectoion col-lg-9 mt-4">
     <h2 class="col-12 text-center mb-5">最近の質問(10件)</h2>
