@@ -1,20 +1,20 @@
 <% provide(:title, "ユーザー設定変更") %>
 <div class="row">
 <h2 class="col-12 text-center my-4">ユーザー設定変更</h2>
-<div class="preview offset-md-4 col-md-4 mb-2 avatar_prev"></div>
+<div class="preview offset-lg-4 col-lg-4 mb-2 avatar_prev"></div>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "col-12", method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-  <div class="field offset-md-4 col-md-4">
+  <div class="field offset-lg-4 col-lg-4">
     <%= f.label :avatar_data, 'アバター画像', class: "col-12" %><br>
     <%= f.hidden_field :avatar, value: @user.cached_avatar_data, autofocus: true, autocomplete: "avatar" %>
     <%= f.file_field :avatar, class: "col-12 mb-4" %>
   </div>
 
-  <div class="field offset-md-4 col-md-4">
+  <div class="field offset-lg-4 col-lg-4">
     <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "col-12 mb-4", placeholder: "お名前" %>
   </div>
   
-  <div class="field offset-md-4 col-md-4">
+  <div class="field offset-lg-4 col-lg-4">
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-12 mb-4", placeholder: "メールアドレス" %>
   </div>
 
@@ -22,7 +22,7 @@
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field offset-md-4 col-md-4">
+  <div class="field offset-lg-4 col-lg-4">
     <%= f.label :password, "(パスワード変更時のみ入力してください)", class: "col-12" %><br />
     <%= f.password_field :password, autocomplete: "new-password", class: "col-12 mb-4", placeholder: "新規パスワード" %>
     <% if @minimum_password_length %>
@@ -31,19 +31,19 @@
     <% end %>
   </div>
 
-  <div class="field offset-md-4 col-md-4">
+  <div class="field offset-lg-4 col-lg-4">
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "col-12 mb-4", placeholder: "新規パスワード(確認)" %>
   </div>
 
-  <div class="field offset-md-4 col-md-4">
+  <div class="field offset-lg-4 col-lg-4">
     <%= f.label :current_password, "(設定の変更には現行のパスワードが必要です)", class: "col-12" %><br />
     <%= f.password_field :current_password, autocomplete: "current-password", class: "col-12 mb-4", placeholder: "現在のパスワード" %>
   </div>
 
-  <div class="actions offset-md-4 col-md-4">
+  <div class="actions offset-lg-4 col-lg-4">
     <%= f.submit "Update", class: "btn btn-primary col-12 rounded-pill mb-4" %>
   </div>
-  <div class="link-wrapper offset-md-4 col-md-4">
+  <div class="link-wrapper offset-lg-4 col-lg-4">
     <%= link_to "もどる", :back, class: " btn btn-primary col-12 rounded-pill" %>
   </div>
 <% end %>
