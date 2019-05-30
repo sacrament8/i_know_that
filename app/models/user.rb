@@ -29,4 +29,8 @@ class User < ApplicationRecord
   def unfollow!(other_user)
     active_relations.find_by(followed_id: other_user.id).destroy
   end
+
+  def reverse_unfollow!(other_user)
+    passive_relations.find_by(follower_id: other_user.id).destroy
+  end
 end

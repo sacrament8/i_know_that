@@ -1,12 +1,22 @@
 <div id="follow_form_<%= user.id %>">
-  <% unless already_linked?(current_user, user) %>
+  <% if !(already_linked?(current_user, user)) %>
+
     <%= form_with(model: current_user.active_relations.build(followed_id: user.id)) do |f| %>
       <%= f.hidden_field :followed_id %>
       <%= f.submit "ひそひそ", class: "btn btn-primary ml-2 hisohiso-btn" %>
     <% end %>
-  <% else %>
+
+  <% elsif current_user.following?(user) %>
+
     <%= form_with(model: current_user.active_relations.find_by(followed_id: user.id), method: :delete ) do |f| %>
       <%= f.submit "ひそひそ中", class: "btn btn-primary ml-2 hisohiso-btn" %>
     <% end %>
+
+  <% elsif user.following?(current_user) %>
+
+    <%= form_with(model: user.active_relations.find_by(followed_id: current_user.id), method: :delete ) do |f| %>
+      <%= f.submit "ひそひそ中", class: "btn btn-primary ml-2 hisohiso-btn" %>
+    <% end %>
+
   <% end %>
 </div>
