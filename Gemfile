@@ -12,6 +12,7 @@ gem 'dotenv-rails'
 gem 'ransack'
 gem 'kaminari'
 gem 'devise'
+gem 'rails-i18n'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 

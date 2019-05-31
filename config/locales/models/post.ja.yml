@@ -1,0 +1,15 @@
+ja:
+  activerecord:
+    models:
+      post: "質問"
+    attributes:
+      post:
+        id: "ID"
+        title: "タイトル"
+        description: "質問内容"
+        status: "解決状態"
+        image_data: "画像"
+        image: "画像"
+        user_id: "ユーザーID"
+        created_at: "作成日時"
+        updated_at: "更新日時"

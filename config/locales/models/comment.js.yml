@@ -1,0 +1,12 @@
+ja:
+  activerecord:
+    models:
+      comment: "コメント"
+    attributes:
+      comment:
+        id: "ID"
+        content: "回答"
+        user_id: "ユーザーID"
+        post_id: "回答ID"
+        created_at: "作成日時"
+        updated_at: "更新日時"

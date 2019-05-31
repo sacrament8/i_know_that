@@ -28,7 +28,7 @@
       <%= render partial: 'posts/status_change', locals: { post: @post } %>
     </div>
   <% end %>
-  <div class="row">
+  <div class="row mb-5">
     <%= render partial: 'comments/index', locals: { comments: @comments, post: @post } %>
     <% if @post.status == '解決' %>
       <div class="col-8 offset-2 bg-light text-center py-4 mb-5 mt-3">この質問は解決済みなのでコメントできません</div>
