@@ -144,6 +144,9 @@ img.preview {
 .comment-content {
   overflow-wrap: normal;
 }
+.badge-warning {
+  padding: 0;
+}
 
 /*follw-btn*/
 .follow-btn {

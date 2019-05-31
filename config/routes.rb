@@ -16,6 +16,9 @@ Rails.application.routes.draw do
       get 'followers'
     end
   end
+  resources :rooms do
+    resources :messages
+  end
   resources :relations, only: %i(create destroy)
   root 'static_pages#home'
   get 'static_pages/home'

@@ -2,22 +2,25 @@
   <div class="h4 text-center col-12 my-4">ひそひそ一覧</div>
   <!--ここにフォロワーがいるならの分岐をかく-->
   <% if followers_and_followings(current_user).present? %>
-    <table class="table bg-light table-shadow col-10 offset-1">
+    <table class="table table-sm bg-light table-shadow col-10 offset-1">
       <thead>
-        <tr class="row">
-          <th class="col-3 text-center">ユーザー名</th>
+        <tr class="row mx-2">
+          <th class="col-4 text-center">ユーザー名</th>
           <th class="col-3 text-center">ひそひそ</th>
-          <th class="col-3 text-center">ひそひそ解除</th>
+          <th class="col-2 text-center">ひそひそ解除</th>
           <th class="col-3 text-center">未読メッセージ</th>
         </tr>
       </thead>
       <tbody>
         <% followers_and_followings(current_user).each do |user| %>
-          <tr class="row">
-          <td class="col-3 text-center"><%= user.name %></td>
+          <tr class="row mx-2">
+          <td class="col-4 text-center"><%= user.name %></td>
           <td class="col-3 text-center"><%= link_to "開始する", "#", class: "btn btn-success hisohiso-btn" %></td>
-          <td class="col-3 text-center"><%= render partial: "users/follow_form", locals: { user: user } %></td>
-          <td class="col-3 text-center">あり/なし</td>
+          <td class="col-2 text-center"><%= render partial: "users/follow_form", locals: { user: user } %></td>
+          <td class="col-3 text-center"><button type="button" class="btn btn-danger">
+            未読
+          <span class="badge badge-light">4</span>
+</button></td>
         </tr>
         <% end %>
       </tbody>
