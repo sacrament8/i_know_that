@@ -21,7 +21,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to posts_path, notice: "質問に成功しました"
     else
-      puts 'hoge'
+      render :new
     end
   end
 

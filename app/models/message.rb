@@ -1,7 +1,10 @@
 class Message < ApplicationRecord
   belongs_to :room
   belongs_to :user
-
+  validates :read, presence: true
+  validates :content, presence: true, length: { in: 1..200 }
+  validates :user_id, presence: true
+  validates :room_id, presence: true
   validates_presence_of :content, :room_id, :user_id
 
   def message_time
