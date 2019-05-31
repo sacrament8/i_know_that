@@ -4,8 +4,8 @@
       <tr class="row mx-2">
         
         <th class="col-3 text-left">質問タイトル</th>
-        <th class="col-5 text-left">質問内容</th>
-        <th class="col-1 text-left">状態</th>
+        <th class="col-4 text-left">質問内容</th>
+        <th class="col-2 text-left">状態</th>
         <th class="col-3 text-center">投稿日</th>
       </tr>
     </thead>
@@ -13,8 +13,8 @@
       <% posts.each do |post| %>
         <tr class="row  mx-2" onclick='window.location="/posts/<%= "#{post.id}" %>"' role="link">
           <td class="col-3 text-left"><%= truncate(post.title, length: 10) %></td>
-          <td class="col-5 text-left"><%= truncate(post.description, length: 18) %></td>
-          <td class="col-1 status-label"><%= post.status %></td>
+          <td class="col-4 text-left"><%= truncate(post.description, length: 18) %></td>
+          <td class="col-2 status-label"><%= post.status %></td>
           <td class="col-3 text-center"><%= post.prepare_created_at %></td>
         </tr>
       <% end %>
