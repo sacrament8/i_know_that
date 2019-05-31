@@ -1,0 +1,59 @@
+<% if @over_ten %>
+  <%= link_to '以前のメッセージ', '?m=all' %>
+<% end %>
+
+<div class="ui segment">
+  <% @messages.each do |message| %>
+    <div class="row">
+      <% if message.content.present? %>
+        <% if message.user_id == current_user.id %>
+          <!--相手のメッセージ欄-->
+          <div class="card offset-5 col-6 my-3" style="background: #71fc6a;">
+            <div class="card-body">
+              <%= simple_format(message.content) %> 
+            </div>
+            <div class="card-title text-right mt-2">
+              <%= "#{message.user.name} : #{message.message_time}" %> / <%= message.read ? '既読' : '未読' %>
+              <%= link_to 'DELETE', room_message_path(@room, message), method: :delete, class: "btn text-light btn-danger reset-pm ml-2", data: { confirm: "このメッセージを削除しますか?" } %>
+            </div>
+          </div>
+
+        <% else %>
+        
+          <!--相手のメッセージ欄-->
+          <div class="card offset-1 col-6 my-3" style="background: #f9f9f9;">
+            <div class="card-body text-right mt-2">
+              <%= simple_format(message.content) %> 
+            </div>
+            <div class="text-left">
+              <%= "#{message.user.name} : #{message.message_time}" %>
+            </div>
+          </div>
+        <% end %>
+
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<!--フォーム部分-->
+<div class="row">
+  <%= form_with(model: [@room, @message], class: "col-8 offset-2 mt-5") do |f| %>
+    <div class="field">
+      <%= f.text_area :content, class: "form-control" %>
+    </div>
+      <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
+    <div>
+      <%= f.submit "メッセージを送る", class: "col-12 mt-3 mb-5 btn btn-primary" %>
+    </div>
+    <div class="card-title col-12 text-center">
+      <%= link_to "ひそひそ一覧にもどる", followers_user_path(current_user.id), class: "btn btn-primary mb-5" %>
+    </div>
+  <% end %>
+  
+</div>
+
+
+<script>
+
+</script>

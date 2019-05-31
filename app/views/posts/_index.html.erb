@@ -1,20 +1,21 @@
 <% if posts.present? %>
   <table class="table bg-light table-shadow table-hover">
-    <thead>
-      <tr>
-        <th>質問タイトル</th>
-        <th>質問内容</th>
-        <th>ステータス</th>
-        <th>投稿日</th>
+    <thead class="col-12">
+      <tr class="row mx-2">
+        
+        <th class="col-3 text-left">質問タイトル</th>
+        <th class="col-4 text-left">質問内容</th>
+        <th class="col-2 text-left">状態</th>
+        <th class="col-3 text-center">投稿日</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="col-12">
       <% posts.each do |post| %>
-        <tr onclick='window.location="/posts/<%= "#{post.id}" %>"' role="link">
-          <td><%= truncate(post.title, length: 12) %></td>
-          <td><%= truncate(post.description, length: 20) %></td>
-          <td><%= post.status %></td>
-          <td><%= post.prepare_created_at %></td>
+        <tr class="row  mx-2" onclick='window.location="/posts/<%= "#{post.id}" %>"' role="link">
+          <td class="col-3 text-left"><%= truncate(post.title, length: 10) %></td>
+          <td class="col-4 text-left"><%= truncate(post.description, length: 18) %></td>
+          <td class="col-2 status-label"><%= post.status %></td>
+          <td class="col-3 text-center"><%= post.prepare_created_at %></td>
         </tr>
       <% end %>
     </tbody>
@@ -24,3 +25,18 @@
       <div class="card-body text-center mt-5">あなたの質問はまだありません</div>
     </div>
 <% end %>
+
+<script>
+$(document).on("turbolinks:load", function() {
+  $('.status-label').each(function(i, el) {
+    if ($(this).text() == "未解決") {
+      $(this).css('color', 'red');
+    } else if ($(this).text() == '保留') {
+      $(this).css('color', 'black');
+    } else if ($(this).text() == "解決") {
+      $(this).css('color', 'blue');
+  }
+  })
+});
+
+</script>

@@ -34,6 +34,11 @@ body {
 .height-auto {
   height: auto;
 }
+.delay-vanish {
+  position: absolute;
+  z-index: 3000;
+  display: none;
+}
 
 /* my page */
 .avatar {
@@ -49,10 +54,8 @@ body {
   border-radius: 6px;
   border: 1px solid #cccccc;
 }
-
-tr.a {
-  cursor: pointer;
-  z-index: 100;
+a {
+  display: inline-block;
 }
 td {
   cursor: default;
@@ -140,6 +143,9 @@ img.preview {
 }
 .comment-content {
   overflow-wrap: normal;
+}
+.badge-warning {
+  padding: 0;
 }
 
 /*follw-btn*/
