@@ -39,6 +39,11 @@ body {
   z-index: 3000;
   display: none;
 }
+td {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
 
 /* my page */
 .avatar {
@@ -101,7 +106,6 @@ img.preview {
 .post_link:hover {
   opacity: 0.7;
 }
-
 .card {
   box-shadow: 9px 4px 9px -4px #8f9997;
   border-radius: 6px;

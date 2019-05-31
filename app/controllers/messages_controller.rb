@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
   end
 
   def index
-    @messages = @room.messages
+    @messages = @room.messages.includes(:user)
 
     if @messages.last
       @messages.where.not(user_id: current_user.id).update_all(read: true)
