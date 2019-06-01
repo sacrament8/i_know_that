@@ -1,11 +1,11 @@
 <% if object.errors.any? %>
   <div id="error_explanation">
-    <div class="alert alert-danger mt-2 text-center">
+    <div class="alert alert-danger mt-2 text-center offset-3 col-6">
       入力内容に<%= object.errors.count %>点の不備が見つかりました
     </div>
-    <ul class="text-center">
+    <ul class="text-center card text-center offset-3 col-6">
     <% object.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+      <li class="cart-title"><%= msg %></li>
     <% end %>
     </ul>
   </div>
