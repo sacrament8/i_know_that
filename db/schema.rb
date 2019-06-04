@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2019_05_31_033609) do
     t.text "content", null: false
     t.bigint "room_id"
     t.bigint "user_id"
-    t.boolean "read", null: false, default: false
+    t.boolean "read", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["room_id"], name: "index_messages_on_room_id"
