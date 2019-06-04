@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
 
-  describe "ユーザーのモデルテスト" do
+  describe "userのモデルテスト" do
     
-    describe "ユーザーの新規作成" do
+    describe "userの新規作成" do
 
       context "成功を期待する" do
         it "avatarは空でもname, email, passwordが存在すれば有効" do
@@ -36,7 +36,7 @@ RSpec.describe User, type: :model do
       end
     end
 
-    describe "ユーザーモデルのメソッドテスト" do
+    describe "userモデルのメソッドテスト" do
 
       before(:example) do
         @user1 = create(:test_user)

@@ -35,6 +35,13 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!
   config.include FactoryBot::Syntax::Methods
+  # ここから
+  config.include ActionDispatch::TestProcess
+  FactoryBot::SyntaxRunner.class_eval do
+    include ActionDispatch::TestProcess
+  end
+  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  # ここまで画像アップロード設定
   config.filter_rails_from_backtrace!
   # RSpecの実行前に一度、実行
   config.before(:suite) do
