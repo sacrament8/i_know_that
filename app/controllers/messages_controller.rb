@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
   end
 
   def index
-    @messages = @room.messages
+    @messages = @room.messages.preload(:user)
 
     if @messages.last
       @messages.where.not(user_id: current_user.id).update_all(read: true)
@@ -19,7 +19,8 @@ class MessagesController < ApplicationController
     if @message.save
       redirect_to room_messages_path(@room)
     else
-      render :index
+      @messages = Room.find(params[:room_id]).messages.preload(:user).order("created_at ASC")
+      render "messages/index"
     end
   end
 

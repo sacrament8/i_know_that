@@ -1,14 +1,5 @@
 <%= form_with(model: [post, comment], local: true, url: post_comments_path(post), class: "col-12") do |f| %>
-  <% if comment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
-      <ul>
-      <% comment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render partial: "shared/error_messages", locals: { object: comment } %>
 
   <div class="field">
     <div class="offset-2 mt-4">コメント欄</div>

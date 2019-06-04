@@ -12,6 +12,7 @@ gem 'dotenv-rails'
 gem 'ransack'
 gem 'kaminari'
 gem 'devise'
+gem 'rails-i18n'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
@@ -37,7 +38,6 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'letter_opener'
 end
 
 group :development do
@@ -48,6 +48,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'pry-rails'
+  gem 'bullet'
 end
 
 group :test do

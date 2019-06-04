@@ -1,11 +1,11 @@
 <% provide(:title, "SignUp") %>
 <div class="row">
-<h2 class="text-center col-12 my-4">Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "col-12" }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= render partial: 'shared/error_messages', locals: { object: resource } %>
 
-  <div class="field col-12">
+
+  <div class="field col-12 mt-5">
     <%= f.text_field :name, autofocus: true, class: "offset-2 offset-lg-4 col-8 col-lg-4 mb-4", autocomplete: "name", placeholder: "お名前" %>
   </div>
 

@@ -1,6 +1,3 @@
-<% if @over_ten %>
-  <%= link_to '以前のメッセージ', '?m=all' %>
-<% end %>
 
 <div class="ui segment">
   <% @messages.each do |message| %>
@@ -30,30 +27,15 @@
             </div>
           </div>
         <% end %>
-
       <% end %>
     </div>
   <% end %>
+  <%= render partial: "messages/form", locals: { room: @room, message: @message } %>
 </div>
-
-<!--フォーム部分-->
-<div class="row">
-  <%= form_with(model: [@room, @message], class: "col-8 offset-2 mt-5") do |f| %>
-    <div class="field">
-      <%= f.text_area :content, class: "form-control" %>
-    </div>
-      <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
-    <div>
-      <%= f.submit "メッセージを送る", class: "col-12 mt-3 mb-5 btn btn-primary" %>
-    </div>
-    <div class="card-title col-12 text-center">
-      <%= link_to "ひそひそ一覧にもどる", followers_user_path(current_user.id), class: "btn btn-primary mb-5" %>
-    </div>
-  <% end %>
-  
-</div>
-
-
 <script>
-
+  $(function(){
+    var a = document.documentElement;
+    var y = a.scrollHeight - a.clientHeight;
+    window.scroll(0, y);
+  });
 </script>

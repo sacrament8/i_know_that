@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :following, through: :active_relations, source: :followed
   has_many :followers, through: :passive_relations, source: :follower
   validates :name, presence: true, length: { in: 2..25 }
+  
   include AvatarUploader::Attachment.new(:avatar)
 
   #指定のユーザをフォローする

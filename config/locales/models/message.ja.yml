@@ -1,0 +1,12 @@
+ja:
+  activerecord:
+    models:
+      message: "ひそひそ"
+    attributes:
+      message:
+        id: "ID"
+        content: "メッセージ"
+        user_id: "ユーザーID"
+        room_id: "ルームID"
+        created_at: "作成日時"
+        updated_at: "更新日時"

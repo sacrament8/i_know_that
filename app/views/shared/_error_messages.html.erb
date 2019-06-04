@@ -1,11 +1,11 @@
 <% if object.errors.any? %>
   <div id="error_explanation">
-    <div class="alert alert-danger">
-      The form contains <%= pluralize(object.errors.count, "error") %>
+    <div class="alert alert-danger my-4 text-center offset-2 col-8">
+      入力内容に<%= object.errors.count %>点の不備が見つかりました
     </div>
-    <ul>
+    <ul class="text-center card text-center offset-2 col-8">
     <% object.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+      <li class="cart-title"><%= msg %></li>
     <% end %>
     </ul>
   </div>

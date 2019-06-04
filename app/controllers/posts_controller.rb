@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @comments = @post.comments
+    @comments = @post.comments.preload(:user)
     @comment = @post.comments.build
   end
 
@@ -21,7 +21,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to posts_path, notice: "質問に成功しました"
     else
-      puts 'hoge'
+      render :new
     end
   end
 
