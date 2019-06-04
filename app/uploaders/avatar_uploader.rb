@@ -3,6 +3,7 @@ class AvatarUploader < Shrine
   plugin :processing # allows hooking into promoting
   plugin :versions   # enable Shrine to handle a hash of files
   plugin :delete_raw # delete processed files after uploading
+  plugin :validation_helpers
 
   @storages = {
     cache: Shrine::Storage::FileSystem.new("public", prefix: "uploads/avatar/cache"), # キャッシュファイル置き場を指定
@@ -20,4 +21,5 @@ class AvatarUploader < Shrine
 
     versions # return the hash of processed files
   end
+
 end

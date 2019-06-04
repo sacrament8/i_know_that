@@ -51,6 +51,9 @@ td {
   z-index: 2;
   width: 100%;
 }
+.pointer-events-clear {
+  pointer-events: none;
+}
 
 /* my page */
 .avatar {

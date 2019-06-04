@@ -1,7 +1,7 @@
 $(document).on("turbolinks:load", function() {
   // 画面サイズ取得し、bodyheightを画面サイズに
   win_height = $(window).height();
-  $("body").css("height", win_height + "px");
+  $("html").css("height", win_height + "px");
   win_height = $(window).height();
   $("html").css("height", win_height + "px");
   $("document").css("margin-top", "50px");
@@ -13,7 +13,7 @@ $(document).on("turbolinks:load", function() {
 
   $(window).resize(function() {
     win_height = $(window).height();
-    $("body").css("height", win_height + "px");
+    $("html").css("height", win_height + "px");
     win_height = $(window).height();
     $("html").css("height", win_height + "px");
   });

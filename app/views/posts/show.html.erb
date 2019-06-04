@@ -2,7 +2,7 @@
 <% provide(:location, "show") %>
 <div class="row reset-pm">
   <div class="card offset-2 col-8 mt-4 mb-5" style="height: auto;">
-      <%= link_to (image_tag @post.image[:large].url), "#", class: "my-3 card-img-top post-image-show" %>
+      <%= link_to (image_tag @post.image[:large].url), origin_size_image_post_path(@post), class: "my-3 card-img-top post-image-show" %>
     <div class="card-title">
       <h3 class="col-12 text-center"><%= @post.title %></h3>
     </div>

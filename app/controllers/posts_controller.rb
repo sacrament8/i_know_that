@@ -21,7 +21,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to posts_path, notice: "質問に成功しました"
     else
-      render :new
+      render "posts/new"
     end
   end
 
@@ -47,6 +47,10 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     redirect_to posts_path, notice: "質問の削除に成功しました"
+  end
+
+  def origin_size_image
+    @post = Post.find(params[:id])
   end
   
   private

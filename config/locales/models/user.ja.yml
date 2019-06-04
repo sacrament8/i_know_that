@@ -5,6 +5,7 @@ ja:
     attributes:
       user:
         id: "ID"
+        avatar: "プロフィール画像"
         created_at: "登録日時"
         updated_at: "更新日時"
         email: "メールアドレス"

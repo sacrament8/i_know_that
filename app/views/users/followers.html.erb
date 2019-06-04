@@ -20,11 +20,11 @@
           <td class="col-3 text-center">
             <% if Room.between(current_user.id, user.id).present? %>
               <% if Room.between(current_user.id, user.id).first.messages.where(read: false).where(user_id: user.id).length > 0 %>
-                <button type="button" class="btn btn-danger">
+                <button type="button" class="btn btn-danger pointer-events-clear">
                   未読
                 <span class="badge badge-light"><%= Room.between(current_user.id, user.id).first.messages.where(read: false).where(user_id: user.id).length %></span></button></td>
               <% else %>
-                <button type="button" class="btn btn-primary">既読</button></td>
+                <button type="button" class="btn btn-primary pointer-events-clear">既読</button></td>
               <% end %>
             <% end %>
         </tr>
