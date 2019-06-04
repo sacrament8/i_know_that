@@ -36,12 +36,10 @@
 .description-text {
   font-size: 20px;
 }
-.btn-wrapper {
-  padding-top: 60px;
-  padding-bottom: 30px;
-}
+
 .change-color {
   color: #e2ccfc;
 }
-.desc-title {
+.btn-wrapper {
+  padding-top: 40px;
 }

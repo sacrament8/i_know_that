@@ -67,6 +67,7 @@
   - dotenv-rails
   - rails-i18n
   - shrine
+  - file_validators
 - 開発
   - rails-pry
   - bullet
