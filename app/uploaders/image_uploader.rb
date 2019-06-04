@@ -3,7 +3,7 @@ class ImageUploader < Shrine
   plugin :processing # allows hooking into promoting
   plugin :versions   # enable Shrine to handle a hash of files
   plugin :delete_raw # delete processed files after uploading
-
+  
   @storages = {
     cache: Shrine::Storage::FileSystem.new("public", prefix: "uploads/image/cache"), # キャッシュファイル置き場を指定
     store: Shrine::Storage::FileSystem.new("public", prefix: "uploads/image"),       # 画像保存先を指定
@@ -20,4 +20,5 @@ class ImageUploader < Shrine
 
     versions # return the hash of processed files
   end
+
 end

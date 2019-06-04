@@ -1,11 +1,12 @@
 <%= form_with model: post, local: true, class: "col-12" do |f| %>
   <%= render partial: 'shared/error_messages', locals: { object: post } %>
-
-  <% if @post.image_data %>
-    <%= image_tag @post.image[:large].url, class: "offset-3 col-6 mt-3 preview" %>
-    <div class="preview offset-3 col-6 post-image-prev"></div>
-  <% else %>
-    <div class="preview offset-3 col-6 post-image-prev"></div>
+  <% unless @post.errors.any? %>
+    <% if @post.image_data %>
+      <%= image_tag @post.cached_image_data[:large].url, class: "offset-3 col-6 mt-3 preview" %>
+      <div class="preview offset-3 col-6 post-image-prev"></div>
+    <% else %>
+      <div class="preview offset-3 col-6 post-image-prev"></div>
+    <% end %>
   <% end %>
 
   <div class="field">

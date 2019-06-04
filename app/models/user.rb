@@ -9,7 +9,9 @@ class User < ApplicationRecord
   has_many :passive_relations, foreign_key: 'followed_id', class_name: 'Relation', dependent: :destroy
   has_many :following, through: :active_relations, source: :followed
   has_many :followers, through: :passive_relations, source: :follower
-  validates :name, presence: true, length: { in: 2..25 }
+  validates :name, length: { in: 2..25 }
+  validates :avatar, file_size: { less_than: 5.megabytes, message: 'は5MB以下の画像のみ使用できます' },
+                     file_content_type: { allow: ['image/jpeg', 'image/png'], message: 'はjpegまたはpng形式の物のみ使用できます' }
   
   include AvatarUploader::Attachment.new(:avatar)
 

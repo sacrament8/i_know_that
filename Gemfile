@@ -13,6 +13,7 @@ gem 'ransack'
 gem 'kaminari'
 gem 'devise'
 gem 'rails-i18n'
+gem 'file_validators'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 

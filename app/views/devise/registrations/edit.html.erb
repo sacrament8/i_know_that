@@ -1,7 +1,9 @@
 <% provide(:title, "ユーザー設定変更") %>
 <div class="row">
 <h2 class="col-12 text-center my-4">ユーザー設定変更</h2>
-<div class="preview offset-lg-4 col-lg-4 mb-2 avatar_prev"></div>
+<% unless resource.errors.any? %>
+  <div class="preview offset-lg-4 col-lg-4 mb-2 avatar_prev"></div>
+<% end %>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "col-12", method: :put }) do |f| %>
   <%= render "shared/error_messages", object: resource %>
   <div class="field offset-lg-4 col-lg-4">
