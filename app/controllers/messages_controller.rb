@@ -19,7 +19,7 @@ class MessagesController < ApplicationController
     if @message.save
       redirect_to room_messages_path(@room)
     else
-      @messages = Room.find(params[:room_id]).messages
+      @messages = Room.find(params[:room_id]).messages.preload(:user).order("created_at ASC")
       render "messages/index"
     end
   end

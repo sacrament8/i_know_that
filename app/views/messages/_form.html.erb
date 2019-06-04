@@ -1,6 +1,9 @@
 <div class="row">
-  <%= form_with(model: [room, message], class: "col-8 offset-2 mt-5") do |f| %>
+  <div class="col-12">
     <%= render partial: 'shared/error_messages', locals: { object: message } %>
+  </div>
+  <%= form_with(model: [room, message], local: true, class: "col-8 offset-2 mt-5") do |f| %>
+    
     <div class="field">
       <%= f.text_area :content, class: "form-control" %>
     </div>

@@ -4,7 +4,7 @@ class Room < ApplicationRecord
   has_many :messages, dependent: :destroy
   # [:sender_id, :recipient_id]が同じ組み合わせで保存されないようにする
   validates_uniqueness_of :sender_id, scope: :recipient_id
-
+  validates_associated :messages
   scope :between, -> (sender_id, recipient_id) do
     where("(rooms.sender_id = ? AND rooms.recipient_id = ?) OR (rooms.sender_id = ? AND rooms.recipient_id = ?)", sender_id, recipient_id, recipient_id, sender_id)
   end
