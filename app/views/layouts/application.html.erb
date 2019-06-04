@@ -12,7 +12,7 @@
   </head>
 
   <body>
-  <% if controller_name != 'static_pages' %>
+  <% if controller_name != 'static_pages' && action_name !=  'origin_size_image' %>
     <%= render partial: 'layouts/header' %>
   <% end %>
   

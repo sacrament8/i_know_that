@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :comments
     member do
       patch 'status_update'
+      get 'origin_size_image'
     end
   end
   resources :users, only: %i(show) do

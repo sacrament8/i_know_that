@@ -48,6 +48,10 @@ class PostsController < ApplicationController
     @post.destroy
     redirect_to posts_path, notice: "質問の削除に成功しました"
   end
+
+  def origin_size_image
+    @post = Post.find(params[:id])
+  end
   
   private
 
