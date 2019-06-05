@@ -20,7 +20,7 @@ $(document).on("turbolinks:load", function() {
   $(function() {
     var $win = $(window),
       $main = $("main"),
-      $nav = $("nav"),
+      $nav = $("#nav"),
       navHeight = $nav.outerHeight(),
       navPos = $nav.offset().top,
       fixedClass = "is-fixed";

@@ -6,8 +6,10 @@
 <div class="row">
   <%= render @posts %>
 </div>
-<div class="mt-5 offset-5">
+<div class="row">
+<div class="col-3 my-5 offset-5">
   <%= paginate @posts %>
+</div>
 </div>
 <script>
   $(function(){

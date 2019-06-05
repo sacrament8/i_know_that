@@ -76,37 +76,37 @@ describe "質問投稿機能", type: :system do
           expect(page).to have_content "編集する"
         end
         # 重くてよく落ちるのでコメントに(調子がいいと通るのでテスト自体はOK)
-        # it "記入に漏れがなければ画像を変更できる" do
-        #   visit post_path(@post)
-        #   click_on "編集する"
-        #   sleep 4
-        #   attach_file "post[image]", "#{Rails.root}/spec/fixtures/image/animal.jpeg"
-        #   sleep 2
-        #   click_on "編集する"
-        #   expect(page).to have_content "編集に成功しました"
-        # end
+        it "記入に漏れがなければ画像を変更できる" do
+          visit post_path(@post)
+          click_on "編集する"
+          sleep 4
+          attach_file "post[image]", "#{Rails.root}/spec/fixtures/image/animal.jpeg"
+          sleep 2
+          click_on "編集する"
+          expect(page).to have_content "編集に成功しました"
+        end
 
-        # it "記入に漏れがなければ質問タイトルを変更できる" do
-        #   visit post_path(@post)
-        #   click_on "編集する"
-        #   sleep 2
-        #   attach_file "post[image]", "#{Rails.root}/spec/fixtures/image/flower.jpg"
-        #   sleep 2
-        #   fill_in "質問タイトル", with: "タイトルを変更しました"
-        #   click_on "編集する"
-        #   expect(page).to have_content "タイトルを変更しました"
-        # end
+        it "記入に漏れがなければ質問タイトルを変更できる" do
+          visit post_path(@post)
+          click_on "編集する"
+          sleep 2
+          attach_file "post[image]", "#{Rails.root}/spec/fixtures/image/flower.jpg"
+          sleep 2
+          fill_in "質問タイトル", with: "タイトルを変更しました"
+          click_on "編集する"
+          expect(page).to have_content "タイトルを変更しました"
+        end
 
-        # it "記入に漏れがなければ質問内容を変更できる" do
-        #   visit post_path(@post)
-        #   click_on "編集する"
-        #   sleep 2
-        #   attach_file "post[image]", "#{Rails.root}/spec/fixtures/image/flower.jpg"
-        #   sleep 2
-        #   fill_in "質問内容", with: "質問内容を変更しました"
-        #   click_on "編集する"
-        #   expect(page).to have_content "質問内容を変更しました"
-        # end
+        it "記入に漏れがなければ質問内容を変更できる" do
+          visit post_path(@post)
+          click_on "編集する"
+          sleep 2
+          attach_file "post[image]", "#{Rails.root}/spec/fixtures/image/flower.jpg"
+          sleep 2
+          fill_in "質問内容", with: "質問内容を変更しました"
+          click_on "編集する"
+          expect(page).to have_content "質問内容を変更しました"
+        end
 
       end
 
