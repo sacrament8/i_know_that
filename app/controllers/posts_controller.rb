@@ -37,6 +37,8 @@ class PostsController < ApplicationController
   end
 
   def status_update
+    @comments = @post.comments.preload(:user)
+    @comment = @post.comments.build
     if @post.update(status: post_params[:status])
       redirect_to @post, notice: '解決状態を更新しました'
     else
