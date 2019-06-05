@@ -56,6 +56,12 @@ RSpec.describe Post, type: :model do
           expect(post.errors.messages[:image]).to include("はjpegまたはpng形式の物のみ投稿できます")
         end
 
+        it "画像サイズが5MB以外であれば無効" do
+          post = build(:post, image: fixture_file_upload("#{Rails.root}/spec/fixtures/image/large_image.jpg"))
+          post.valid?
+          expect(post.errors.messages[:image]).to include("は5MB以下の物のみ投稿できます")
+        end
+
       end
     end
 
@@ -65,7 +71,6 @@ RSpec.describe Post, type: :model do
         post = build(:post, created_at: Time.new(2019, 12, 31))
         expect(post.prepare_created_at).to eq "2019年12月31日"
       end
-
     end
   end
 end
