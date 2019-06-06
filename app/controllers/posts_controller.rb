@@ -38,10 +38,12 @@ class PostsController < ApplicationController
 
   def status_update
     @comments = @post.comments.preload(:user)
-    @comment = @post.comments.build
-    if @post.update(status: post_params[:status])
+    
+    if @post.update!(status: post_params[:status], image: @post.image_data)
+      @comment = @post.comments.build
       redirect_to @post, notice: '解決状態を更新しました'
     else
+      flash.now[:danger] = "状態の更新に失敗しました"
       render :show
     end
   end

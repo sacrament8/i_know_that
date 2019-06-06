@@ -28,7 +28,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'shrine'
 gem 'mini_magick'
 gem 'image_processing'
-
+gem 'seed-fu'
+gem 'faker'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'bootsnap', '>= 1.1.0', require: false
