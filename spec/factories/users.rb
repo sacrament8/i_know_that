@@ -1,18 +1,18 @@
 FactoryBot.define do
   factory :user do
-    name { "test_user" }
+    name { "test-user" }
     email { "test@test.com" }
     password { "111111" }
   end
   
   factory :user_a, class: User do
-    name { "foo_user" }
+    name { "foo" }
     email { "foo@test.com" }
     password { "111111" }
   end
 
   factory :user_b, class: User do
-    name { "bar_user" }
+    name { "bar" }
     email { "bar@test.com" }
     password { "111111" }
   end

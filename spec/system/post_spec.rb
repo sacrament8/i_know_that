@@ -88,12 +88,15 @@ describe "質問投稿機能", type: :system do
 
         it "記入に漏れがなければ質問タイトルを変更できる" do
           visit post_path(@post)
+          sleep 1
           click_on "編集する"
           sleep 2
           attach_file "post[image]", "#{Rails.root}/spec/fixtures/image/flower.jpg"
           sleep 2
           fill_in "質問タイトル", with: "タイトルを変更しました"
+          sleep 1
           click_on "編集する"
+          sleep 1
           expect(page).to have_content "タイトルを変更しました"
         end
 
