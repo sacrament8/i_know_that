@@ -30,6 +30,7 @@ namespace :deploy do
     end
   end
   after :publishing, :restart
+  before :publishing, 'db:seed_fu'
 
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
