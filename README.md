@@ -82,6 +82,7 @@
   - seed-fu
   - rails-i18n
   - image_processing
+  - aws-sdk-s3
 - 開発, テスト
   - rails-pry
   - bullet
