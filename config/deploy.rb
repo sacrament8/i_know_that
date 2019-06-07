@@ -45,6 +45,7 @@ namespace :deploy do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
     end
   end
+  before :publishing, 'db:migrate:reset'
   before :publishing, 'db:seed_fu'
   desc 'Load seed data into database'
   task :seed_fu do
