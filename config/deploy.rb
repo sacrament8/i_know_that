@@ -13,6 +13,21 @@ set :keep_releases, 5
 set :rbenv_ruby, '2.5.3'
 set :rbenv_type, :system
 set :log_level, :info
+
+bundle exec cap db:reset
+namespace :db do
+  desc 'Resets DB without create/drop'
+  task :reset do
+    on primary :db do
+      within release_path do
+        with rails_env: fetch(:stage) do
+          execute :rake, 'db:schema:load'
+          execute :rake, 'db:seed'
+        end
+      end
+    end
+  end
+end
 namespace :deploy do
   desc 'Restart application'
   task :restart do
@@ -43,7 +58,7 @@ namespace :deploy do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
     end
   end
-  after :publishing, 'db:seed_fu'
+  before :publishing, 'db:seed_fu'
   desc 'Load seed data into database'
   task :seed_fu do
     on roles(fetch(:seed_fu_roles) || :app) do
