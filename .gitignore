@@ -17,8 +17,10 @@
 # Ignore uploaded files in development
 /storage/*
 !/storage/.keep
-
-/node_modules
+/node_modules/jquery/external
+/node_modules/jquery/src
+/node_modules/bootstrap/scss
+/node_modules/bootstrap/js
 /yarn-error.log
 
 /public/assets
