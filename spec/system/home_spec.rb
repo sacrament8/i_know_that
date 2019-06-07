@@ -36,7 +36,7 @@ describe "ランディングページの機能テスト", type: :system do
         visit new_user_session_path
         fill_in "メールアドレス", with: "hogehoge@test.com"
         fill_in "パスワード", with: "asdfggreaga"
-        click_on "SignIn"
+        click_on "サインイン"
         expect(page).to have_content "メールアドレス もしくはパスワードが不正です"
       end
 
@@ -70,7 +70,7 @@ describe "ランディングページの機能テスト", type: :system do
         visit new_user_session_path
         fill_in "メールアドレス", with: "example@test.com"
         fill_in "パスワード", with: "111111"
-        click_on "SignIn"
+        click_on "サインイン"
         expect(current_path).to eq user_path(@user)
       end
   
@@ -78,7 +78,7 @@ describe "ランディングページの機能テスト", type: :system do
         visit new_user_session_path
         fill_in "メールアドレス", with: "example@test.com"
         fill_in "パスワード", with: "111111"
-        click_on "SignIn"
+        click_on "サインイン"
         find(".navbar-toggler-icon").click
         click_on "test-user"
         click_on "SignOut"

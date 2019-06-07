@@ -6,7 +6,6 @@ class UsersController < ApplicationController
   end
 
   def followers
-    @user = User.find(current_user.id)
   end
   
 end

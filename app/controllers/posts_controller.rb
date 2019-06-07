@@ -3,8 +3,8 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i(edit show update destroy status_update)
 
   def index
-    @q = Post.ransack(params[:q])
-    @posts = @q.result(distinct: true).order(created_at: :desc).page(params[:page]).per(9)
+    @q = Post.where.not(status: "保留").ransack(params[:q])
+    @posts = @q.result(distinct: true).where.not(status: "保留").order(created_at: :desc).page(params[:page]).per(9)
   end
 
   def show
