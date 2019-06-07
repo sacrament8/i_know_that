@@ -1,16 +1,16 @@
 lock '3.6.0'
 
 # デプロイするアプリケーション名
-set :application, 'achieve'
+set :application, 'i_know_that'
 
 # cloneするgitのレポジトリ（xxxxxxxx：ユーザ名、yyyyyyyy：アプリケーション名）
-set :repo_url, 'https://github.com/xxxxxxxxx/yyyyyyyyy'
+set :repo_url, 'https://github.com/sacrament8/i_know_that'
 
 # deployするブランチ。デフォルトはmasterなのでなくても可。
 set :branch, ENV['BRANCH'] || 'master'
 
 # deploy先のディレクトリ。
-set :deploy_to, '/var/www/achieve'
+set :deploy_to, '/var/www/i_know_that'
 
 # シンボリックリンクをはるフォルダ・ファイル
 set :linked_files, %w{.env config/secrets.yml}
@@ -20,7 +20,7 @@ set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets public/uploads}
 set :keep_releases, 5
 
 # Rubyのバージョン
-set :rbenv_ruby, '2.5.1'
+set :rbenv_ruby, '2.5.3'
 set :rbenv_type, :system
 
 #出力するログのレベル。エラーログを詳細に見たい場合は :debug に設定する。
