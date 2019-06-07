@@ -13,7 +13,7 @@ set :keep_releases, 5
 set :rbenv_ruby, '2.5.3'
 set :rbenv_type, :system
 set :log_level, :info
-namespace :deploy deploy
+namespace :deploy do
   desc 'Restart application'
   task :restart do
     invoke 'unicorn:restart'
