@@ -30,6 +30,7 @@ namespace :deploy do
       end
     end
   end
+
   task :db_reset do
     on roles(:app) do
       within release_path do
@@ -43,7 +44,7 @@ namespace :deploy do
 
   
 
-  after :restart, :clear_cache do
+  before :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
     end
   end
