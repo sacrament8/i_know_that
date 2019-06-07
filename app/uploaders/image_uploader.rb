@@ -5,10 +5,10 @@ class ImageUploader < Shrine
   #plugin :delete_raw # delete processed files after uploading
   plugin :determine_mime_type
   
-  @storages = {
-    cache: Shrine::Storage::FileSystem.new("public", prefix: "uploads/image/cache"), # キャッシュファイル置き場を指定
-    store: Shrine::Storage::FileSystem.new("public", prefix: "uploads/image"),       # 画像保存先を指定
-  }
+  # @storages = {
+  #   cache: Shrine::Storage::FileSystem.new("public", prefix: "uploads/image/cache"), # キャッシュファイル置き場を指定
+  #   store: Shrine::Storage::FileSystem.new("public", prefix: "uploads/image"),       # 画像保存先を指定
+  # }
 
   process(:store) do |io, context|
     versions = { original: io } # retain original
