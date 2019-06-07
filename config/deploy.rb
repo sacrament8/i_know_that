@@ -29,7 +29,15 @@ namespace :deploy do
       end
     end
   end
+  after :publishing, :restart
 
+  after :restart, :clear_cache do
+    on roles(:web), in: :groups, limit: 3, wait: 10 do
+
+    end
+  end
+end
+namespace :db do
   desc 'Load seed data into database'
   task :seed_fu do
     on roles(fetch(:seed_fu_roles) || :app) do
@@ -38,16 +46,6 @@ namespace :deploy do
           execute :bundle, :exec, :rails, 'db:seed_fu'
         end
       end
-    end
-  end
-end
-
-
-  after :publishing, :restart
-
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-
     end
   end
 end
