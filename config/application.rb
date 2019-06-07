@@ -1,6 +1,6 @@
 require_relative 'boot'
 require 'rails/all'
-
+ActiveRecord::Base.protected_environments = %w(staging)
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
