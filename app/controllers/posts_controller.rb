@@ -3,8 +3,8 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i(edit show update destroy status_update)
 
   def index
-    @q = Post.ransack(params[:q])
-    @posts = @q.result(distinct: true).order(created_at: :desc).page(params[:page]).per(9)
+    @q = Post.where.not(status: "保留").ransack(params[:q])
+    @posts = @q.result(distinct: true).where.not(status: "保留").order(created_at: :desc).page(params[:page]).per(9)
   end
 
   def show
@@ -37,9 +37,13 @@ class PostsController < ApplicationController
   end
 
   def status_update
-    if @post.update(status: post_params[:status])
+    @comments = @post.comments.preload(:user)
+    
+    if @post.update!(status: post_params[:status], image: @post.image_data)
+      @comment = @post.comments.build
       redirect_to @post, notice: '解決状態を更新しました'
     else
+      flash.now[:danger] = "状態の更新に失敗しました"
       render :show
     end
   end

@@ -2,6 +2,6 @@
   <label>質問検索</label>
   <%= f.search_field :description_or_title_cont %>
   <%= f.submit '検索' %>
-  <%= sort_link(@q, :created_at, '投稿日時でソート', default_order: :asc, class: 'btn btn-primary') %>
+  <%= sort_link(@q, :created_at, '投稿日時でソート', default_order: :asc) %>
 
 <% end %>

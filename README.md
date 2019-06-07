@@ -2,10 +2,20 @@
 
 # 写真投稿によりそれが何か教えてもらうアプリ<br>「I know that」
 
-# 概要
+# コンセプト
 
 あるモノの正体を知りたい人が画像と概要を投稿することで、他のユーザにそれが何かコメントで教えてもらう。<br>
 投稿機能は登録ユーザのみの制限があり、投稿に対しての回答コメントは非登録ユーザにも可能
+
+# ログインについて
+
+ユーザー登録をしなくてもランディングページの「登録済みの方はこちら」から SignIn ページに進んでいただき
+「テストユーザーでログイン」を押していただくことで、事前に用意した確認用ユーザーでログインしていただけます
+
+- テスト用ユーザー情報
+  - name: test-user
+  - email: `test@test.com`
+  - password: 111111
 
 # versions
 
@@ -57,7 +67,7 @@
 
 - https://cacoo.com/diagrams/IvG18huciJj9bjFO/F171A
 
-# 使用予定 gem
+# 使用 gem
 
 - 本番、開発
   - kaminari
@@ -68,6 +78,14 @@
   - rails-i18n
   - shrine
   - file_validators
-- 開発
+  - faker
+  - seed-fu
+  - rails-i18n
+  - image_processing
+- 開発, テスト
   - rails-pry
   - bullet
+  - factory_bot_rails
+  - database_cleaner
+  - spring-commands-rspec
+  - webdrivers
