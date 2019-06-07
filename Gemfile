@@ -31,6 +31,9 @@ gem 'seed-fu'
 gem 'faker'
 gem "aws-sdk-s3"
 gem "unicorn"
+gem 'bcrypt', '~> 3.1.7'
+gem 'ed25519'
+gem 'bcrypt_pbkdf'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
