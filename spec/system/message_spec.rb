@@ -14,6 +14,7 @@ describe "ダイレクトメッセージ関連", type: :system do
       it "他ユーザーの投稿のひそひそボタンからフォローに追加" do
         visit post_path(@post)
         click_on "ひそひそ"
+        sleep 2
         expect(page).to have_content "#{@other_user.name}さんとひそひそ状態になりました"
       end
 
