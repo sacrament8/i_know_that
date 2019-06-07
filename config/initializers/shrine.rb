@@ -14,8 +14,8 @@ if Rails.env.production?
     store: Shrine::Storage::S3.new(prefix: 'store', **s3_options)}
 else
   Shrine.storages = {
-    cache: Shrine::Storage::FileSystem.new("public", prefix: "uploads/avatar/cache"), # キャッシュファイル置き場を指定
-    store: Shrine::Storage::FileSystem.new("public", prefix: "uploads/avatar"),       # 画像保存先を指定
+    cache: Shrine::Storage::FileSystem.new("public", prefix: "uploads/image/cache"), # キャッシュファイル置き場を指定
+    store: Shrine::Storage::FileSystem.new("public", prefix: "uploads/image"),       # 画像保存先を指定
   }
 end
 
