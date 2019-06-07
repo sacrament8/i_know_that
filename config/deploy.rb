@@ -19,15 +19,6 @@ namespace :deploy do
     invoke 'unicorn:restart'
   end
 
-  task :db_reset do
-    on roles(:app) do
-      within release_path do
-        with rails_env: fetch(:rails_env) do
-          execute :rake, "db:migrate:reset"
-        end
-      end
-    end
-  end
 
   desc 'Create database'
   task :db_create do
@@ -40,14 +31,14 @@ namespace :deploy do
     end
   end
   after :publishing, :restart
-  before :publishing, 'db:seed_fu'
+  
 
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
 
     end
   end
-
+  after 'deploy:finishing', 'db:seed_fu'
   desc 'Load seed data into database'
   task :seed_fu do
     on roles(fetch(:seed_fu_roles) || :app) do
