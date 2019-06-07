@@ -1,10 +1,12 @@
 .home-style {
   background: linear-gradient(
-      -150deg,
-      rgba(15, 168, 84, 0.781),
-      rgba(240, 22, 193, 0.667)
-    ),
-    url(dog.jpg) no-repeat fixed;
+    -150deg,
+    rgba(15, 168, 84, 0.781),
+    rgba(240, 22, 193, 0.667)
+  );
+  background-image: image-url("dog.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   background-position: center right;
   background-size: cover;
 }
