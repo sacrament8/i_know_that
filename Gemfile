@@ -15,8 +15,7 @@ gem 'devise'
 gem 'rails-i18n'
 gem 'file_validators'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'mini_racer', platforms: :ruby
-
+gem 'mini_racer', platforms: :ruby
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
@@ -31,6 +30,8 @@ gem 'image_processing'
 gem 'seed-fu'
 gem 'faker'
 gem "aws-sdk-s3"
+gem "unicorn"
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -41,6 +42,11 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'capybara'
   gem 'spring-commands-rspec'
+  gem 'capistrano', '3.6.0'
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
 end
 
 group :development do
