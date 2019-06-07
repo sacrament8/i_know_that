@@ -14,7 +14,6 @@ set :rbenv_ruby, '2.5.3'
 set :rbenv_type, :system
 set :log_level, :info
 
-bundle exec cap db:reset
 namespace :db do
   desc 'Resets DB without create/drop'
   task :reset do
