@@ -30,6 +30,7 @@ gem 'mini_magick'
 gem 'image_processing'
 gem 'seed-fu'
 gem 'faker'
+gem "aws-sdk-s3"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'bootsnap', '>= 1.1.0', require: false
