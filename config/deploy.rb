@@ -35,10 +35,9 @@ namespace :deploy do
 
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
-
     end
   end
-  after 'deploy:finishing', 'db:seed_fu'
+  before :publishing, 'db:seed_fu'
   desc 'Load seed data into database'
   task :seed_fu do
     on roles(fetch(:seed_fu_roles) || :app) do
