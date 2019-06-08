@@ -3,7 +3,7 @@ require 'carrierwave/storage/file'
 require 'carrierwave/storage/fog'
 CarrierWave.configure do |config|
   if Rails.env.production?
-    config.asset_host = "https://s3-ap-northeast-1.amazonaws.com/#{ENV['S3_BUCKET']}"
+    config.asset_host = "https://" + ENV['S3_BUCKET'] + ".s3-ap-northeast-1.amazonaws.com"
     config.storage :fog
     config.cache_storage = :fog
     config.fog_provider = 'fog/aws'
