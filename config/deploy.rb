@@ -62,7 +62,7 @@ namespace :deploy do
     end
   end
 
-  # before :publishing, 'db:seed_fu'
+  before :publishing, 'db:seed_fu'
   desc 'Load seed data into database'
   task :seed_fu do
     on roles(fetch(:seed_fu_roles) || :app) do
