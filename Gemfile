@@ -28,14 +28,12 @@ gem 'mini_magick'
 gem 'image_processing'
 gem 'seed-fu'
 gem 'faker'
-gem "aws-sdk-s3"
 gem "unicorn"
 gem 'bcrypt', '~> 3.1.7'
 gem 'ed25519'
 gem 'bcrypt_pbkdf'
 gem 'listen', '>= 3.0.5', '< 3.2'
 gem 'carrierwave'
-gem 'fog'
 gem 'fog-aws'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
