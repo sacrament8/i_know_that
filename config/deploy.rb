@@ -18,7 +18,6 @@ set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets public/uploads}
 
 # 保持するバージョンの個数(※後述)
 set :keep_releases, 2
-set :bundle_binstubs, -> { shared_path.join('bin') }
 # Rubyのバージョン
 set :rbenv_ruby, '2.5.3'
 set :rbenv_type, :system
