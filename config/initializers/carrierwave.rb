@@ -43,7 +43,7 @@ CarrierWave.configure do |config|
 
   case Rails.env
     when 'production'
-      config.fog_directory = '本番環境用のバケット名'
+      config.fog_directory = ENV['S3_BUCKET']
       config.asset_host = "https://s3-ap-northeast-1.amazonaws.com/" + ENV['S3_BUCKET']
     when 'development'
       config.storage :file

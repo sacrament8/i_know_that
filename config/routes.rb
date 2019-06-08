@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       get 'origin_size_image'
     end
   end
-  resources :privates, only: %i(show) do
+  resources :users, only: %i(show) do
     member do
       get 'followers'
     end
