@@ -7,7 +7,7 @@ set :application, 'i_know_that'
 set :repo_url, 'https://github.com/sacrament8/i_know_that'
 
 # deployするブランチ。デフォルトはmasterなのでなくても可。
-set :branch, ENV['BRANCH'] || 'master'
+set :branch, "carrier-ver" || 'master'
 
 # deploy先のディレクトリ。
 set :deploy_to, '/var/www/i_know_that'

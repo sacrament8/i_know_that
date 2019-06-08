@@ -20,6 +20,6 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def filename
-    original_filename if original_filename
+    "image_#{model.id}.#{file.extension}" if original_filename
   end
 end
