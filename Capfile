@@ -7,7 +7,7 @@ require "capistrano/rails/assets"
 require "capistrano/rails/migrations"
 require "capistrano3/unicorn"
 require 'seed-fu/capistrano3'
-require 'capistrano/yarn'
+# require 'capistrano/yarn'
 # Include tasks from other gems included in your Gemfile
 #
 # For documentation on these, see for example:
