@@ -11,8 +11,8 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relations, source: :follower
   mount_uploader :avatar, AvatarUploader
   validates :name, length: { in: 2..25 }
-  validates :avatar, file_size: { less_than: 5.megabytes, message: 'は5MB以下の画像のみ使用できます' },
-                     file_content_type: { allow: ['image/jpeg', 'image/png'], message: 'はjpegまたはpng形式の物のみ使用できます' }
+  # validates :avatar, file_size: { less_than: 5.megabytes, message: 'は5MB以下の画像のみ使用できます' },
+  #                    file_content_type: { allow: ['image/jpeg', 'image/png'], message: 'はjpegまたはpng形式の物のみ使用できます' }
   
 
   #指定のユーザをフォローする

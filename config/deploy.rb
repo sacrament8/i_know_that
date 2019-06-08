@@ -23,6 +23,11 @@ set :keep_releases, 5
 set :rbenv_ruby, '2.5.3'
 set :rbenv_type, :system
 
+# yarnの設定
+set :yarn_flags, "--prefer-offline --production --no-progress"
+set :yarn_roles, :app
+set :yarn_bin, '~/.ndenv/shims/yarn'
+
 #出力するログのレベル。エラーログを詳細に見たい場合は :debug に設定する。
 #本番環境用のものであれば、 :info程度が普通。ただし挙動をしっかり確認したいのであれば :debug に設定する。
 set :log_level, :info
