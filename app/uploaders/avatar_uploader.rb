@@ -5,6 +5,7 @@ class AvatarUploader < Shrine
   #plugin :delete_raw # delete processed files after uploading
   plugin :validation_helpers
   plugin :determine_mime_type
+  plugin :default_url_options, store: { host: "http://i-know-that-production.s3-ap-northeast-1.amazonaws.com/store/" }
 
   # @storages = {
   #   cache: Shrine::Storage::FileSystem.new("public", prefix: "uploads/avatar/cache"), # キャッシュファイル置き場を指定
