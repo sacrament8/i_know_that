@@ -51,7 +51,7 @@ group :development, :test do
   gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
   gem 'capistrano-rails-db'
-  gem 'capistrano-yarn'
+  # gem 'capistrano-yarn'
 end
 
 group :development do
