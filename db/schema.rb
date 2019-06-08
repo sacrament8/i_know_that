@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2019_05_31_033609) do
     t.string "title", null: false
     t.text "description", null: false
     t.integer "status", default: 0, null: false
-    t.text "image_data"
+    t.text "image"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2019_05_31_033609) do
 
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
-    t.text "avatar_data"
+    t.text "avatar"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

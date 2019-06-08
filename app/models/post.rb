@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
-  include ImageUploader::Attachment.new(:image)
+  mount_uploader :image, ImageUploader
   validates :title, length: { in: 1..20 }
   validates :description, length: { in: 1..500 }
   validates :status, presence: true

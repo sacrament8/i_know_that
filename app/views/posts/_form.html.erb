@@ -1,8 +1,8 @@
 <%= form_with model: post, local: true, class: "col-12" do |f| %>
   <%= render partial: 'shared/error_messages', locals: { object: post } %>
   <% unless @post.errors.any? %>
-    <% if @post.image_data %>
-      <%= image_tag @post.image[:large].url, class: "offset-3 col-6 mt-3 preview" %>
+    <% if @post.image.present? %>
+      <%= image_tag @post.image.url, class: "offset-3 col-6 mt-3 preview" %>
       <div class="preview offset-3 col-6 post-image-prev"></div>
     <% else %>
       <div class="preview offset-3 col-6 post-image-prev"></div>
@@ -10,8 +10,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :image_data, '画像ファイル', class: "offset-3 col-6 mt-3" %><br>
-    <%= f.hidden_field :image, value: post.cached_image_data %>
+    <%= f.label :image, '画像ファイル', class: "offset-3 col-6 mt-3" %><br>
+    <%= f.hidden_field :image_cache %>
     <%= f.file_field :image, class: "offset-3 col-6 mb-4", id: "post_image" %>
   </div>
 
