@@ -5,6 +5,9 @@ $listen = File.expand_path 'tmp/sockets/unicorn.sock', $app_dir
 $pid = File.expand_path 'tmp/pids/unicorn.pid', $app_dir
 $std_log = File.expand_path 'log/unicorn.log', $app_dir
 
+app_path = '/var/www/i_know_that'
+Unicorn::HttpServer::START_CTX[0] = File.join(app_path, 'shared/bin/unicorn')
+
 worker_processes  $worker
 working_directory $app_dir
 stderr_path $std_log
