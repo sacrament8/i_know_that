@@ -4,7 +4,7 @@
       rgba(15, 168, 84, 0.781),
       rgba(240, 22, 193, 0.667)
     ),
-    image-url("dog.jpg");
+    url("dog.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center right;
