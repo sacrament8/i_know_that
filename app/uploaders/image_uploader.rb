@@ -15,6 +15,10 @@ class ImageUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
+  def cache_dir
+    "cache"
+  end
+
   def extension_whitelist
     %w(png jpg jpeg gif)
   end
