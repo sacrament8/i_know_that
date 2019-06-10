@@ -23,6 +23,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
     %w(png jpg jpeg)
   end
 
+  def size_range
+    0.2..5.megabytes
+  end
+
   def filename
     original_filename if original_filename
   end

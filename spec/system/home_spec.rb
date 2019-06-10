@@ -18,7 +18,7 @@ describe "ランディングページの機能テスト", type: :system do
 
     it "登録しないで利用(機能制限)リンク" do
       click_on "登録しないで利用(機能制限)"
-      find(".navbar-toggler-icon").click
+      find(".navbar-toggler").click
       expect(page).to have_content "名無しさん"
     end
 
@@ -53,10 +53,12 @@ describe "ランディングページの機能テスト", type: :system do
 
       it "テストユーザーでログインボタン機能" do
         # テストユーザー要のアカウントを作成
-        user = User.create(name: "tester", email: "test@test.com", password: "111111")
+        user = create(:user)
         visit new_user_session_path
+        sleep 1
         click_on "テストユーザーでログイン"
-        expect(current_path).to eq user_path(user)
+        sleep 1
+        expect(page).to have_content user.name
       end
 
     end
@@ -76,11 +78,11 @@ describe "ランディングページの機能テスト", type: :system do
   
       it "ハンバーガーのSignOutからサインアウト後ランディングページにリダイレクト" do
         visit new_user_session_path
-        fill_in "メールアドレス", with: "example@test.com"
-        fill_in "パスワード", with: "111111"
+        fill_in "メールアドレス", with: @user.email
+        fill_in "パスワード", with: @user.password
         click_on "サインイン"
-        find(".navbar-toggler-icon").click
-        click_on "test-user"
+        find(".navbar-toggler").click
+        click_on @user.name
         click_on "SignOut"
         expect(current_path).to eq root_path
       end

@@ -18,7 +18,7 @@
 /storage/*
 !/storage/.keep
 /yarn-error.log
-
+/public/cache
 /public/assets
 .byebug_history
 
