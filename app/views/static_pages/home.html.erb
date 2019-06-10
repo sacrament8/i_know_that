@@ -1,6 +1,6 @@
 <% provide(:title, "entrance") %>
 
-<div class="row">
+<div class="row intro-wrapper">
 
   <div class="col-lg-12 text-center mt-4 text-light home-title">I know that</div>
 
@@ -25,7 +25,7 @@
 <script>
 $(function() {
   // home画面のみ背景画像とグラデーションレイヤー用クラスを付加
-  $('html').addClass('home-style');
+  $('body').addClass('home-style');
   // アプリ紹介文のアニメーション
   var element = $('.slide-fade'); //オブジェクトを取得
   var interval=147; //フェードインさせる間隔
