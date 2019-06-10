@@ -1,28 +1,33 @@
-require "image_processing/mini_magick"
-require 'shrine/storage/s3'
-class AvatarUploader < Shrine
-  plugin :processing # allows hooking into promoting
-  plugin :versions   # enable Shrine to handle a hash of files
-  #plugin :delete_raw # delete processed files after uploading
-  plugin :validation_helpers
-  plugin :determine_mime_type
-  plugin :store_dimensions, analyzer: :mini_magick
-
-  # @storages = {
-  #   cache: Shrine::Storage::FileSystem.new("public", prefix: "uploads/avatar/cache"), # キャッシュファイル置き場を指定
-  #   store: Shrine::Storage::FileSystem.new("public", prefix: "uploads/avatar"),       # 画像保存先を指定
-  # }
-
-  process(:store) do |io, context|
-    versions = { original: io } # retain original
-
-    io.download do |original|
-      pipeline = ImageProcessing::MiniMagick.source(original)
-
-      versions[:large]  = pipeline.resize_to_limit!(600, 600)
-    end
-
-    versions # return the hash of processed files
+class AvatarUploader < CarrierWave::Uploader::Base
+  include CarrierWave::MiniMagick
+  version :thumb do
+    process resize_to_fit: [600, 600]
+  end
+  if Rails.env.development?
+    storage :file
+  elsif Rails.env.test?
+    storage :file
+  else
+    storage :fog
   end
 
+  def store_dir
+    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  end
+
+  def cache_dir
+    "cache"
+  end
+
+  def extension_whitelist
+    %w(png jpg jpeg)
+  end
+
+  def size_range
+    0.2..5.megabytes
+  end
+
+  def filename
+    original_filename if original_filename
+  end
 end

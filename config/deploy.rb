@@ -7,7 +7,7 @@ set :application, 'i_know_that'
 set :repo_url, 'https://github.com/sacrament8/i_know_that'
 
 # deployするブランチ。デフォルトはmasterなのでなくても可。
-set :branch, ENV['BRANCH'] || 'master'
+set :branch, "carrier-ver" || 'master'
 
 # deploy先のディレクトリ。
 set :deploy_to, '/var/www/i_know_that'
@@ -17,8 +17,7 @@ set :linked_files, %w{.env config/secrets.yml}
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets public/uploads}
 
 # 保持するバージョンの個数(※後述)
-set :keep_releases, 5
-
+set :keep_releases, 2
 # Rubyのバージョン
 set :rbenv_ruby, '2.5.3'
 set :rbenv_type, :system

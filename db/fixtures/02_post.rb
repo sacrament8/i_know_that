@@ -131,6 +131,7 @@ Post.seed do |s|
   s.description = "ネットで見つけたのですが何か引き込まれてしまいました\n有名な絵でしたら美術館で展示されていると思うので、有名な絵だった場合\n何という名前の絵か知ってる人いませんか?"
   s.image = File.open("#{Rails.root}/db/fixtures/image/image13.jpg")
   s.user_id = User.find(13).id
+  s.status = "解決"
 end
 
 Post.seed do |s|
@@ -139,6 +140,7 @@ Post.seed do |s|
   s.description = "賃貸マンションの水回りの掃除をしていたところ謎の部品を見つけました\n自分の物ではないので元からあったものだと思いますが捨てたらまずいでしょうか...\n何に使う部品か知ってる人いませんか?"
   s.image = File.open("#{Rails.root}/db/fixtures/image/image14.jpg")
   s.user_id = User.find(14).id
+  s.status = "解決"
 end
 
 Post.seed do |s|

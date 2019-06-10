@@ -1,6 +1,7 @@
 <% provide(:button_text, "編集する") %>
 <% provide(:title, "質問編集ページ") %>
 <%= render partial: "posts/form", locals: { post: @post } %>
+
 <script>
 $(function(){
   //画像ファイルプレビュー表示のイベント追加 fileを選択時に発火するイベントを登録

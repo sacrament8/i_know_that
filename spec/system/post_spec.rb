@@ -117,7 +117,7 @@ describe "質問投稿機能", type: :system do
         before do
           @post = create(:post, user_id: @user.id)
           visit user_path(@user)
-          find(".navbar-toggler-icon").click
+          find(".navbar-toggler").click
           click_on "#{@user.name}"
           click_on "SignOut"
         end
@@ -155,7 +155,7 @@ describe "質問投稿機能", type: :system do
         before do
           @post = create(:post, user_id: @user.id)
           visit user_path(@user)
-          find(".navbar-toggler-icon").click
+          find(".navbar-toggler").click
           click_on "#{@user.name}"
           click_on "SignOut"
         end
@@ -176,7 +176,7 @@ describe "質問投稿機能", type: :system do
       click_on "テストユーザーでログイン"
       @post = create(:post, user_id: @user.id)
       visit user_path(@user)
-      find(".navbar-toggler-icon").click
+      find(".navbar-toggler").click
       click_on "#{@user.name}"
       click_on "SignOut"
     end
@@ -323,7 +323,7 @@ describe "投稿に対するコメント機能" do
   context "非ログイン時" do
     before do
       visit user_path(@user)
-      find(".navbar-toggler-icon").click
+      find(".navbar-toggler").click
       click_on "#{@user.name}"
       click_on "SignOut"
     end

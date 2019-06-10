@@ -53,13 +53,14 @@ RSpec.describe Post, type: :model do
         it "imageのmime typeがimage/jpegかimage/png以外であれば無効" do
           post = build(:post, image: fixture_file_upload("#{Rails.root}/spec/fixtures/image/flower.jpg.zip"))
           post.valid?
-          expect(post.errors.messages[:image]).to include("はjpegまたはpng形式の物のみ投稿できます")
+          expect(post.errors.messages[:image][0]).to include("ファイルのアップロードは許可されていません。アップロードできるファイルタイプ: png, jpg, jpeg")
         end
 
         it "画像サイズが5MB以外であれば無効" do
+          
           post = build(:post, image: fixture_file_upload("#{Rails.root}/spec/fixtures/image/large_image.jpg"))
           post.valid?
-          expect(post.errors.messages[:image]).to include("は5MB以下の物のみ投稿できます")
+          expect(post.errors.messages[:image][0]).to include("を5MBバイト以下のサイズにしてください")
         end
 
       end

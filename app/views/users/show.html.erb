@@ -1,7 +1,7 @@
 <% provide(:title, "マイページ") %>
 <div class="row">
   <div class="left-section col-lg-3 mt-4">
-    <%= image_tag (@user.avatar.present? ? @user.avatar[:large].url : "no-image.jpg"), class: 'avatar mx-auto' %>
+    <%= image_tag (@user.avatar.present? ? @user.avatar_url(:thumb) : "no-image.jpg"), class: 'avatar mx-auto' %>
     <p class="col-12 text-center mt-2"><%= @user.name %></p>
     <%= link_to "設定変更", edit_user_registration_path, class: "btn btn-primary col-8 offset-2" %>
     <%= link_to "ひそひそ一覧", followers_user_path(@user), class: "btn btn-primary col-8 offset-2 my-4" %>

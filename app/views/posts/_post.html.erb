@@ -5,7 +5,7 @@
         <% if post.status == "解決"%>
           <div class="status-logo-resolved">解決済</div>
         <% end %>
-        <%= image_tag post.image[:large].url, class: "post-image mt-3 mx-auto" %>
+        <%= image_tag post.image_url(:thumb), class: "post-image mt-3 mx-auto" %>
         <div class="card-title mt-3 mx-auto h3"><%= truncate(post.title, length: 12) %></div>
         <div class="card-text mx-auto text-center mt-2"><%= truncate(post.description, length: 80) %></div>
       </div>

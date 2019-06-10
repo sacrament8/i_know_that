@@ -14,6 +14,8 @@ gem 'kaminari'
 gem 'devise'
 gem 'rails-i18n'
 gem 'file_validators'
+gem "jquery-rails"
+gem 'bootstrap', '~> 4.3.1'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'mini_racer', platforms: :ruby
 gem 'coffee-rails', '~> 4.2'
@@ -24,18 +26,17 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveStorage variant
-gem 'shrine'
 gem 'mini_magick'
 gem 'image_processing'
 gem 'seed-fu'
 gem 'faker'
-gem "aws-sdk-s3"
 gem "unicorn"
 gem 'bcrypt', '~> 3.1.7'
 gem 'ed25519'
 gem 'bcrypt_pbkdf'
 gem 'listen', '>= 3.0.5', '< 3.2'
-
+gem 'carrierwave'
+gem 'fog-aws'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -52,6 +53,7 @@ group :development, :test do
   gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
   gem 'capistrano-rails-db'
+  # gem 'capistrano-yarn'
 end
 
 group :development do
