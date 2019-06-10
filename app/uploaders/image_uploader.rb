@@ -20,10 +20,10 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def extension_whitelist
-    %w(png jpg jpeg gif)
+    %w(png jpg jpeg)
   end
 
   def filename
-    "image_#{model.id}.#{file.extension}" if original_filename
+    original_filename if original_filename
   end
 end
