@@ -76,16 +76,17 @@
   - minimagick
   - dotenv-rails
   - rails-i18n
-  - shrine
-  - file_validators
   - faker
   - seed-fu
   - rails-i18n
-  - image_processing
-  - aws-sdk-s3
+  - carrierwave
+  - fow-aws
+  - jquery-rails
+  - bootstrap
 - 開発, テスト
   - rails-pry
   - bullet
+  - rspec-rails
   - factory_bot_rails
   - database_cleaner
   - spring-commands-rspec
