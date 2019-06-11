@@ -1,10 +1,10 @@
 .home-style {
-  background-image: image-url("dog2.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center right;
-  background-size: cover;
-  font-family: "Quicksand", "Kosugi Maru", sans-serif;
+  background: linear-gradient(
+      -150deg,
+      rgba(15, 168, 84, 0.781),
+      rgba(240, 22, 193, 0.667)
+    ),
+    image-url("dog.jpg");
 }
 /*HOME*/
 .navbar-brand {
