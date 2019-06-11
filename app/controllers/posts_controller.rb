@@ -4,8 +4,8 @@ class PostsController < ApplicationController
   before_action :this_post_not_yours, only: %i(edit destroy status_update update)
 
   def index
-    @q = Post.where.not(status: "保留").ransack(params[:q])
-    @posts = @q.result(distinct: true).where.not(status: "保留").order(created_at: :desc).page(params[:page]).per(9)
+    @q = Post.other_than_hold_posts(params[:q])
+    @posts = Post.posts_paginate(@q, params[:page], 9)
   end
 
   def show
