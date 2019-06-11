@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: %i(edit update destroy status_update)
+  before_action :authenticate_user!, only: %i(edit new create update destroy status_update)
   before_action :set_post, only: %i(edit show update destroy status_update)
+  before_action :this_post_not_yours, only: %i(edit destroy status_update update)
 
   def index
     @q = Post.where.not(status: "保留").ransack(params[:q])
@@ -58,6 +59,11 @@ class PostsController < ApplicationController
   end
   
   private
+
+  def this_post_not_yours
+    flash[:danger] = "自分の投稿のみ操作可能です"
+    redirect_to posts_path unless @post.id == current_user.id
+  end
 
   def set_post
     @post = Post.find_by(id: params[:id])

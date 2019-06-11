@@ -20,7 +20,9 @@
   <div class="container-fluid">
   <div class="row">
     <% flash.each do |message_type, message| %>
-      <div class="alert alert-<%= message_type %> col-8 offset-2 text-light text-center py-1 mt-2 delay-vanish" style="background-color:#d65cd2;"><%= message %></div>
+      <div class="flash-container text-center">
+        <div class="alert alert-<%= message_type %> col-12 text-light text-center py-2 mt-2 delay-vanish" style="background-color:#d65cd2;"><%= message %></div>
+      </div>
     <% end %>
   </div>
     <%= yield %>
