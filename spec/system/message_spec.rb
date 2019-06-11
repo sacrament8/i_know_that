@@ -24,7 +24,7 @@ describe "ダイレクトメッセージ関連", type: :system do
         visit user_path(@user)
         click_on "ひそひそ一覧"
         sleep 4
-        click_on "ひそひそ中"
+        click_on "解除する"
         page.accept_confirm
         expect(page).to have_content "#{@other_user.name}さんとのひそひそ状態を解除しました"
       end
