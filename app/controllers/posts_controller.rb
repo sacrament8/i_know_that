@@ -61,8 +61,10 @@ class PostsController < ApplicationController
   private
 
   def this_post_not_yours
-    flash[:danger] = "自分の投稿のみ操作可能です"
-    redirect_to posts_path unless @post.user_id == current_user.id
+    unless @post.user_id == current_user.id
+      flash[:danger] = "自分の投稿のみ操作可能です"
+      redirect_to posts_path
+    end
   end
 
   def set_post
