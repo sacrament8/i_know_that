@@ -22,10 +22,10 @@
             <% if Room.between(current_user.id, user.id).present? %>
               <% if Room.between(current_user.id, user.id).first.messages.where(read: false).where(user_id: user.id).length > 0 %>
                 <button type="button" class="btn btn-danger pointer-events-clear">
-                  未読
-                <span class="badge badge-light"><%= Room.between(current_user.id, user.id).first.messages.where(read: false).where(user_id: user.id).length %></span></button></td>
+                  <%= Room.between(current_user.id, user.id).first.messages.where(read: false).where(user_id: user.id).length %>件の未読
+                </button></td>
               <% else %>
-                <button type="button" class="btn btn-primary pointer-events-clear">既読</button></td>
+                <button type="button" class="btn btn-primary pointer-events-clear">未読なし</button></td>
               <% end %>
             <% end %>
         </tr>
@@ -38,3 +38,10 @@
     </div>
   <% end %>
 </div>
+
+<script>
+  $(function(){
+  var targets = $("input.btn.btn-primary.ml-2.hisohiso-btn.disconnect");
+  targets.val('解除する');
+  });
+</script>

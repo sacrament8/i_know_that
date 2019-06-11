@@ -6,11 +6,6 @@ $(document).on("turbolinks:load", function() {
   $("html").css("height", win_height + "px");
   $("document").css("margin-top", "50px");
 
-  // flashメッセージ出現、消滅アニメーション
-  $(".delay-vanish")
-    .fadeIn(100)
-    .fadeOut(3600);
-
   $(window).resize(function() {
     win_height = $(window).height();
     $("html").css("height", win_height + "px");
@@ -34,4 +29,8 @@ $(document).on("turbolinks:load", function() {
       $main.css("margin-top", "0");
     }
   });
+  // flashメッセージ出現、消滅アニメーション
+  $(".delay-vanish")
+    .fadeIn(100)
+    .fadeOut(3600);
 });

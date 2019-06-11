@@ -12,4 +12,10 @@ class Post < ApplicationRecord
   def prepare_created_at
     self.created_at.strftime('%Y年%m月%d日')
   end
+
+  scope :other_than_hold_posts, -> (ransack_params) { where.not(status: "保留").ransack(ransack_params) }
+  def self.posts_paginate(target, page_params, per)
+    target.result(distinct: true).order(created_at: :desc).page(page_params).per(per)
+  end
+
 end

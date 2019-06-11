@@ -36,8 +36,20 @@ body {
 }
 .delay-vanish {
   position: absolute;
-  z-index: 3;
   display: none;
+  z-index: 3;
+}
+.flash-container {
+  position: absolute;
+  z-index: 5;
+  top: 65px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  margin-left: 80px;
+  margin-right: 80px;
+  pointer-events: none;
 }
 td {
   text-overflow: ellipsis;
@@ -185,4 +197,17 @@ img.preview {
 /*comment form*/
 .comment-form {
   width: 100%;
+}
+
+/*folloers*/
+button.btn.btn-primary.pointer-events-clear {
+  background-color: transparent;
+  color: black;
+  min-width: 100px;
+  border: none;
+}
+button.btn.btn-danger.pointer-events-clear {
+  background-color: transparent;
+  color: black;
+  border: none;
 }
