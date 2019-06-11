@@ -46,11 +46,10 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  height: 0;
-  width: 0;
   margin: auto;
   margin-left: 80px;
   margin-right: 80px;
+  pointer-events: none;
 }
 td {
   text-overflow: ellipsis;
