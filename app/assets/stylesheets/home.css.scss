@@ -5,6 +5,10 @@
       rgba(240, 22, 193, 0.667)
     ),
     image-url("dog.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center right;
+  background-size: cover;
 }
 /*HOME*/
 .navbar-brand {
