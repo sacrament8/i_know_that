@@ -3,10 +3,12 @@
       <div class="my-2 card offset-2 col-8">
         <% if comment&.user %>
           <div class="card-title my-3 text-right">回答者 : <%= comment.user.name %></div>
-          <% unless comment.user.id == current_user.id %>
-            <div class="text-right">
-              <%= render partial: "users/follow_form", locals: { user: comment.user } %>
-            </div>
+          <% unless comment.user.id == current_user&.id %>
+            <% if user_signed_in? %>
+              <div class="text-right">
+                <%= render partial: "users/follow_form", locals: { user: comment.user } %>
+              </div>
+            <% end %>
           <% end %>
         <% else %>
           <div class="card-title my-3 text-right">回答者 : 名無しさん</div>
